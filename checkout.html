@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - Tên Shop Của Bạn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #666;
+            --border-color: #e9e9e9;
+            --accent-color: #007bff;
+            --background-light: #f8f9fa;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #fff;
+            color: var(--primary-color);
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .checkout-form h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 15px;
+            box-sizing: border-box;
+            background-color: #fff;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .form-group select:disabled {
+            background-color: #f0f0f0;
+            cursor: not-allowed;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .address-row {
+             display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .radio-group .radio-item {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Cho phép form thẻ xuống dòng */
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .radio-group .radio-item input[type="radio"] {
+            margin-right: 15px;
+        }
+        .payment-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .payment-icon {
+            height: 24px;
+        }
+
+        /* THAY ĐỔI: CSS cho form nhập thông tin thẻ */
+        .card-details-form {
+            width: 100%;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            display: none; /* Mặc định ẩn đi */
+        }
+        .card-details-form.show {
+            display: block; /* Hiện ra khi được chọn */
+        }
+
+        .order-summary {
+            background-color: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 25px;
+            position: sticky;
+            top: 20px;
+        }
+        .order-summary h2 {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+        .summary-product {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .summary-product img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        .summary-product-info .name {
+            font-weight: 500;
+        }
+        .summary-product-info .variant {
+            font-size: 13px;
+            color: var(--secondary-color);
+        }
+        .summary-product .price {
+            margin-left: auto;
+            font-weight: 500;
+        }
+        .summary-total {
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        .summary-total .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .summary-total .grand-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+        .btn-complete-order {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 700;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .checkout-layout {
+                grid-template-columns: 1fr;
+            }
+            .order-summary {
+                grid-row-start: 1;
+                margin-bottom: 30px;
+                position: static;
+            }
+        }
+        @media (max-width: 768px) {
+            .form-row, .address-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="checkout-layout">
+            <div class="checkout-form">
+                <h2>Thông tin giao hàng</h2>
+                <div class="form-group">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" id="name" placeholder="Nguyễn Văn A">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone" placeholder="09xxxxxxx">
+                </div>
+                <div class="address-row">
+                    <div class="form-group">
+                        <label for="province">Tỉnh / Thành phố</label>
+                        <select id="province"><option value="">-- Chọn Tỉnh/Thành --</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="district">Quận / Huyện</label>
+                        <select id="district" disabled><option value="">-- Chọn Quận/Huyện --</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ward">Phường / Xã</label>
+                        <select id="ward" disabled><option value="">-- Chọn Phường/Xã --</option></select>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="street-address">Số nhà, tên đường</label>
+                    <input type="text" id="street-address" placeholder="Ví dụ: 123 Đường ABC">
+                </div>
+                <h3 class="section-title">Phương thức vận chuyển</h3>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="shipping-standard" name="shipping" checked>
+                        <label for="shipping-standard">Giao hàng tiêu chuẩn</label>
+                    </div>
+                </div>
+
+                <h3 class="section-title">Phương thức thanh toán</h3>
+                 <div class="radio-group" id="payment-methods">
+                    <div class="radio-item">
+                        <input type="radio" id="payment-cod" name="payment" value="cod" checked>
+                        <label for="payment-cod" class="payment-label">Thanh toán khi nhận hàng (COD)</label>
+                    </div>
+
+                    <div class="radio-item">
+                        <input type="radio" id="payment-momo" name="payment" value="momo">
+                        <label for="payment-momo" class="payment-label">
+                            Ví MoMo
+                            <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="MoMo" class="payment-icon">
+                        </label>
+                    </div>
+
+                    <div class="radio-item">
+                        <input type="radio" id="payment-vnpay" name="payment" value="vnpay">
+                        <label for="payment-vnpay" class="payment-label">
+                            VNPay-QR
+                            <img src="https://vnpay.vn/s1/statics/images/logo-vnpay-qr-1.png" alt="VNPay" class="payment-icon">
+                        </label>
+                    </div>
+
+                    <div class="radio-item">
+                        <input type="radio" id="payment-card" name="payment" value="card">
+                        <label for="payment-card" class="payment-label">
+                            Thẻ quốc tế (Visa, Mastercard, JCB)
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" class="payment-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png" alt="Visa" class="payment-icon">
+                        </label>
+                        <div class="card-details-form" id="card-form">
+                            <div class="form-group">
+                                <label for="card-number">Số thẻ</label>
+                                <input type="text" id="card-number" placeholder="**** **** **** ****">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="card-expiry">Ngày hết hạn</label>
+                                    <input type="text" id="card-expiry" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-cvc">CVV</label>
+                                    <input type="text" id="card-cvc" placeholder="***">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="order-summary">
+                <h2>Tóm tắt đơn hàng</h2>
+                <div class="summary-product-list">
+                    <div class="summary-product">
+                        <img src="https://via.placeholder.com/80x80/E8E8E8/000000?text=SP" alt="Sản phẩm 1">
+                        <div class="summary-product-info">
+                            <div class="name">Áo Sơ Mi Lụa Cao Cấp</div>
+                            <div class="variant">Số lượng: 1</div>
+                        </div>
+                        <div class="price">1.250.000₫</div>
+                    </div>
+                </div>
+                <div class="summary-total">
+                    <div class="total-row">
+                        <span>Tạm tính</span>
+                        <span>1.250.000₫</span>
+                    </div>
+                     <div class="total-row">
+                        <span>Phí vận chuyển</span>
+                        <span>30.000₫</span>
+                    </div>
+                    <div class="grand-total">
+                        <span>Tổng cộng</span>
+                        <span>1.280.000₫</span>
+                    </div>
+                </div>
+                <button class="btn-complete-order">HOÀN TẤT ĐẶT HÀNG</button>
+            </aside>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... (phần JavaScript xử lý địa chỉ giữ nguyên) ...
+            const apiEndpoint = 'https://provinces.open-api.vn/api/?depth=3';
+            async function fetchAddressData() {
+                try {
+                    const response = await fetch(apiEndpoint);
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return await response.json();
+                } catch (error) {
+                    console.error('Failed to fetch address data:', error);
+                    return [];
+                }
+            }
+            async function initializeAddressSelector() {
+                const provinceSelect = document.getElementById('province');
+                const districtSelect = document.getElementById('district');
+                const wardSelect = document.getElementById('ward');
+                const addressData = await fetchAddressData();
+                if (addressData.length === 0) return;
+                const populateSelect = (el, items, text) => {
+                    el.innerHTML = `<option value="">-- ${text} --</option>`;
+                    items.forEach(i => { el.innerHTML += `<option value="${i.code}">${i.name}</option>`; });
+                };
+                populateSelect(provinceSelect, addressData, 'Chọn Tỉnh/Thành');
+                provinceSelect.addEventListener('change', function() {
+                    const p = addressData.find(p => p.code == this.value);
+                    populateSelect(districtSelect, p ? p.districts : [], 'Chọn Quận/Huyện');
+                    districtSelect.disabled = !p;
+                    wardSelect.innerHTML = '<option value="">-- Chọn Phường/Xã --</option>';
+                    wardSelect.disabled = true;
+                });
+                districtSelect.addEventListener('change', function() {
+                    const p = addressData.find(p => p.code == provinceSelect.value);
+                    const d = p?.districts.find(d => d.code == this.value);
+                    populateSelect(wardSelect, d ? d.wards : [], 'Chọn Phường/Xã');
+                    wardSelect.disabled = !d;
+                });
+            }
+            initializeAddressSelector();
+
+            // THAY ĐỔI: JavaScript xử lý việc hiện/ẩn form thẻ
+            const paymentMethods = document.getElementById('payment-methods');
+            const cardForm = document.getElementById('card-form');
+            const cardPaymentRadio = document.getElementById('payment-card');
+
+            paymentMethods.addEventListener('change', function(event) {
+                if(event.target.name === 'payment') {
+                    if (cardPaymentRadio.checked) {
+                        cardForm.classList.add('show');
+                    } else {
+                        cardForm.classList.remove('show');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -758,5 +758,30 @@ document.addEventListener('DOMContentLoaded', function () {
     } catch(e) {
        console.error("Swiper for promo banner initialization failed:", e);
     }
+    
+    // Giả lập trạng thái đăng nhập
+    const isLoggedIn = true; // Thay đổi thành 'false' để mô phỏng chưa đăng nhập
 
+    const notificationWrapper = document.getElementById('notification-wrapper');
+    const notificationBadge = document.getElementById('notification-badge');
+    const notificationDropdown = document.getElementById('notification-dropdown');
+
+    if (notificationWrapper) {
+        if (isLoggedIn) {
+            // Nếu đã đăng nhập, hiển thị wrapper thông báo
+            notificationWrapper.classList.remove('hidden');
+        } else {
+            // Nếu chưa, đảm bảo nó vẫn ẩn
+            notificationWrapper.classList.add('hidden');
+        }
+    }
+
+    if (notificationDropdown) {
+        notificationDropdown.addEventListener('mouseover', () => {
+            // Ẩn dấu chấm đỏ khi người dùng di chuột vào menu thông báo
+            if (notificationBadge) {
+                notificationBadge.classList.add('hidden');
+            }
+        });
+    }
 });

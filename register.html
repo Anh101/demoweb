@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Tài Khoản Mới</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap');
+        
+        :root {
+            --primary-color: #0056b3;
+            --primary-hover: #004494;
+            --background-color: #f4f7f6;
+            --form-background: #ffffff;
+            --text-color: #333;
+            --label-color: #555;
+            --border-color: #ccc;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px 0;
+        }
+
+        .register-container {
+            background-color: var(--form-background);
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+        .register-container h1 { font-size: 26px; margin-bottom: 10px; }
+        .register-container p { color: var(--label-color); margin-bottom: 30px; font-size: 15px; }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+            position: relative;
+        }
+        .form-group .icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 12px 12px 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .input-with-button { display: flex; gap: 10px; }
+        .input-with-button input { padding-left: 12px; }
+
+        .btn {
+            padding: 14px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .btn:disabled {
+            background-color: #a0a0a0;
+            cursor: not-allowed;
+            transform: none;
+            opacity: 0.7;
+        }
+        .btn-primary { background-color: var(--primary-color); color: #fff; }
+
+        .recaptcha-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* THAY ĐỔI: CSS cho phần Điều khoản */
+        .terms-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .terms-group input[type="checkbox"] {
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+        .terms-group label {
+            font-size: 13px;
+            color: var(--label-color);
+            line-height: 1.5;
+        }
+        .terms-group a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .terms-group a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #aaa;
+            margin: 25px 0;
+            font-size: 13px;
+        }
+        .divider::before, .divider::after {
+            content: ''; flex: 1; border-bottom: 1px solid #e5e5e5;
+        }
+        .divider:not(:empty)::before { margin-right: .75em; }
+        .divider:not(:empty)::after { margin-left: .75em; }
+
+        .social-login { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .social-login .btn { display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-google { background-color: #fff; color: #444; border: 1px solid #ddd; }
+        .btn-facebook { background-color: #1877F2; color: #fff; }
+
+        .login-link { margin-top: 25px; font-size: 14px; }
+        .login-link a { color: var(--primary-color); font-weight: 700; text-decoration: none; }
+
+        .message { margin-top: 15px; font-weight: 500; }
+        .message.success { color: #5cb85c; }
+        .message.error { color: #d9534f; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h1>Bắt đầu ngay</h1>
+        <p>Tạo tài khoản để trải nghiệm dịch vụ của chúng tôi</p>
+        <form id="register-form">
+            <div class="form-group"><i class="fas fa-envelope icon"></i><input type="email" id="email" placeholder="Email" required></div>
+            <div class="form-group"><i class="fas fa-phone icon"></i><input type="text" id="phone" placeholder="Số điện thoại" required></div>
+            <div class="form-group"><i class="fas fa-lock icon"></i><input type="password" id="password" placeholder="Mật khẩu" required></div>
+            <div class="form-group"><i class="fas fa-check-circle icon"></i><input type="password" id="confirm-password" placeholder="Nhập lại mật khẩu" required></div>
+            <div class="form-group">
+                <div class="input-with-button">
+                    <input type="text" id="otp" placeholder="Nhập mã OTP" class="hidden">
+                    <button type="button" class="btn" id="btn-send-otp" style="padding: 14px 15px; width: auto; flex-shrink: 0; background-color: #f0f0f0; border: 1px solid #ddd; color: #555;">Gửi Mã OTP</button>
+                </div>
+            </div>
+            <div class="recaptcha-container"><div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div></div>
+
+            <div class="terms-group">
+                <input type="checkbox" id="terms-checkbox" required>
+                <label for="terms-checkbox">
+                    Tôi đã đọc và đồng ý với <a href="/terms" target="_blank">Điều khoản Dịch vụ</a> và <a href="/privacy" target="_blank">Chính sách Bảo mật</a> của bạn.
+                </label>
+            </div>
+            
+            <button type="submit" id="submit-btn" class="btn btn-primary" disabled>Tạo Tài Khoản</button>
+            <div id="form-message" class="message"></div>
+        </form>
+        <div class="divider">HOẶC</div>
+        <div class="social-login">
+            <button class="btn btn-google"><i class="fab fa-google"></i> Google</button>
+            <button class="btn btn-facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+        </div>
+        <p class="login-link">Bạn đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const registerForm = document.getElementById('register-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const termsCheckbox = document.getElementById('terms-checkbox');
+            const formMessage = document.getElementById('form-message');
+            // ... (các biến khác giữ nguyên)
+
+            // THAY ĐỔI: Xử lý kích hoạt nút "Tạo Tài Khoản"
+            termsCheckbox.addEventListener('change', () => {
+                submitBtn.disabled = !termsCheckbox.checked;
+            });
+            
+            // ... (logic gửi OTP giữ nguyên)
+            const btnSendOtp = document.getElementById('btn-send-otp');
+            const otpInput = document.getElementById('otp');
+            btnSendOtp.addEventListener('click', () => {
+                // ...
+            });
+
+            registerForm.addEventListener('submit', (event) => {
+                event.preventDefault(); 
+                
+                // THAY ĐỔI: Kiểm tra lại checkbox trước khi gửi, dù nút đã được kích hoạt
+                if (!termsCheckbox.checked) {
+                    formMessage.textContent = 'Bạn phải đồng ý với các điều khoản để tiếp tục.';
+                    formMessage.className = 'message error';
+                    return;
+                }
+                
+                // ... (logic kiểm tra mật khẩu, recaptcha, và gửi form giữ nguyên)
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+                formMessage.textContent = '';
+
+                if (password !== confirmPassword) {
+                    formMessage.textContent = 'Mật khẩu nhập lại không khớp.';
+                    formMessage.className = 'message error';
+                    return;
+                }
+
+                const recaptchaResponse = grecaptcha.getResponse();
+                if (!recaptchaResponse) {
+                    formMessage.textContent = 'Vui lòng xác thực bạn không phải là robot.';
+                    formMessage.className = 'message error';
+                    return;
+                }
+
+                formMessage.textContent = 'Đang xử lý...';
+                
+                setTimeout(() => {
+                    formMessage.textContent = 'Tài khoản của bạn đã được tạo thành công!';
+                    formMessage.className = 'message success';
+                    registerForm.reset();
+                    grecaptcha.reset();
+                    otpInput.classList.add('hidden');
+                    submitBtn.disabled = true; // Vô hiệu hóa lại nút sau khi thành công
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
