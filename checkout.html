@@ -316,6 +316,12 @@
                 <button class="btn-complete-order">HOÀN TẤT ĐẶT HÀNG</button>
             </aside>
         </div>
+        
+        <div id="success-message" style="display: none; text-align: center; padding: 50px; background-color: #e6ffe6; border: 1px solid #c3e6cb; border-radius: 8px; margin-top: 20px;">
+            <h2>🎉 Đặt hàng thành công!</h2>
+            <p>Cảm ơn bạn đã tin tưởng và mua sắm tại cửa hàng của chúng tôi. Đơn hàng của bạn sẽ sớm được xử lý và giao đến.</p>
+            <p>Bạn có thể theo dõi tình trạng đơn hàng trong mục "Đơn hàng của tôi".</p>
+        </div>
     </div>
     
     <script>
@@ -372,6 +378,22 @@
                         cardForm.classList.remove('show');
                     }
                 }
+            });
+
+            // THÊM: JavaScript xử lý sự kiện click của nút "HOÀN TẤT ĐẶT HÀNG"
+            const completeOrderBtn = document.querySelector('.btn-complete-order');
+            const checkoutLayout = document.querySelector('.checkout-layout');
+            const successMessage = document.getElementById('success-message');
+
+            completeOrderBtn.addEventListener('click', function() {
+                // Ẩn layout thanh toán
+                checkoutLayout.style.display = 'none';
+                
+                // Hiện thông báo thành công
+                successMessage.style.display = 'block';
+                
+                // Cuộn lên đầu trang để người dùng thấy thông báo
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
