@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Sản Phẩm Kiểu Shopee</title>
+    <!-- Liên kết Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Sử dụng phông chữ Inter từ Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Liên kết Font Awesome để sử dụng biểu tượng ngôi sao -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .product-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .filter-button.active {
+            font-weight: bold;
+            color: #f97316; /* Màu cam của Shopee */
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 bg-gray-100">
+
+    <!-- Nút sắp xếp -->
+    <div class="container mx-auto flex justify-end items-center mb-6">
+        <label for="sort-by" class="mr-2 text-gray-700 font-semibold">Sắp xếp theo:</label>
+        <select id="sort-by" class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+            <option value="default">Mặc định</option>
+            <option value="price-asc">Giá: Thấp đến cao</option>
+            <option value="price-desc">Giá: Cao xuống thấp</option>
+            <option value="sold-desc">Bán chạy nhất</option>
+        </select>
+    </div>
+
+    <!-- Nội dung chính: sidebar và lưới sản phẩm -->
+    <div class="container mx-auto flex flex-col lg:flex-row gap-8">
+
+        <!-- Sidebar bộ lọc -->
+        <aside class="lg:w-1/4 bg-white p-6 rounded-lg shadow-md mb-6 lg:mb-0">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Bộ Lọc Tìm Kiếm</h2>
+            
+            <button id="clear-filters-btn" class="w-full bg-orange-500 text-white font-medium py-2 rounded-lg hover:bg-orange-600 transition-colors duration-200 mb-4">
+                Xóa Tất Cả Bộ Lọc
+            </button>
+            
+            <!-- Lọc theo danh mục -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-700 mb-2">Loại sản phẩm</h3>
+                <ul>
+                    <li class="mb-1"><button class="filter-category text-gray-600 hover:text-orange-500 filter-button" data-category="all">Tất cả danh mục</button></li>
+                    <li class="mb-1"><button class="filter-category text-gray-600 hover:text-orange-500 filter-button" data-category="phone">Điện thoại</button></li>
+                    <li class="mb-1"><button class="filter-category text-gray-600 hover:text-orange-500 filter-button" data-category="laptop">Laptop</button></li>
+                    <li class="mb-1"><button class="filter-category text-gray-600 hover:text-orange-500 filter-button" data-category="tablet">Máy tính bảng</button></li>
+                    <li class="mb-1"><button class="filter-category text-gray-600 hover:text-orange-500 filter-button" data-category="audio">Thiết bị âm thanh</button></li>
+                    <li class="mb-1"><button class="filter-category text-gray-600 hover:text-orange-500 filter-button" data-category="accessories">Phụ kiện</button></li>
+                    <li class="mb-1"><button class="filter-category text-gray-600 hover:text-orange-500 filter-button" data-category="camera">Máy ảnh</button></li>
+                    <li class="mb-1"><button class="filter-category text-gray-600 hover:text-orange-500 filter-button" data-category="tv">Tivi</button></li>
+                    <li class="mb-1"><button class="filter-category text-gray-600 hover:text-orange-500 filter-button" data-category="smart-home">Thiết bị nhà thông minh</button></li>
+                </ul>
+            </div>
+            
+            <!-- Lọc theo khoảng giá -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-700 mb-2">Khoảng giá</h3>
+                <input type="range" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" id="price-range" min="0" max="50000000" value="50000000">
+                <div class="flex justify-between text-xs text-gray-500 mt-2">
+                    <span id="min-price">0₫</span>
+                    <span id="max-price">50.000.000₫</span>
+                </div>
+            </div>
+
+            <!-- Lọc theo vị trí -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-700 mb-2">Vị trí</h3>
+                <ul>
+                    <li class="mb-1"><button class="filter-location text-gray-600 hover:text-orange-500 filter-button" data-location="Hà Nội">Hà Nội</button></li>
+                    <li class="mb-1"><button class="filter-location text-gray-600 hover:text-orange-500 filter-button" data-location="TP. Hồ Chí Minh">TP. Hồ Chí Minh</button></li>
+                    <li class="mb-1"><button class="filter-location text-gray-600 hover:text-orange-500 filter-button" data-location="Đà Nẵng">Đà Nẵng</button></li>
+                </ul>
+            </div>
+
+            <!-- Lọc theo đánh giá -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-700 mb-2">Đánh giá</h3>
+                <ul>
+                    <li class="mb-1"><button class="filter-rating text-gray-600 hover:text-orange-500 filter-button" data-rating="5">5 sao</button></li>
+                    <li class="mb-1"><button class="filter-rating text-gray-600 hover:text-orange-500 filter-button" data-rating="4">4 sao trở lên</button></li>
+                    <li class="mb-1"><button class="filter-rating text-gray-600 hover:text-orange-500 filter-button" data-rating="3">3 sao trở lên</button></li>
+                </ul>
+            </div>
+
+            <!-- Dịch Vụ & Khuyến Mãi (đã chuyển xuống cuối) -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-700 mb-2">Dịch Vụ & Khuyến Mãi</h3>
+                <ul>
+                    <li class="mb-1"><a href="#" class="text-gray-600 hover:text-orange-500 flex items-center"><i class="fas fa-truck mr-2"></i> Miễn Phí Vận Chuyển</a></li>
+                    <li class="mb-1"><a href="#" class="text-gray-600 hover:text-orange-500 flex items-center"><i class="fas fa-gift mr-2"></i> Hoàn Xu</a></li>
+                    <li class="mb-1"><a href="#" class="text-gray-600 hover:text-orange-500 flex items-center"><i class="fas fa-ticket-alt mr-2"></i> Voucher</a></li>
+                    <li class="mb-1"><a href="#" class="text-gray-600 hover:text-orange-500 flex items-center"><i class="fas fa-shield-alt mr-2"></i> Bảo Hành Chính Hãng</a></li>
+                    <li class="mb-1"><a href="#" class="text-gray-600 hover:text-orange-500 flex items-center"><i class="fas fa-percent mr-2"></i> Trả Góp 0%</a></li>
+                </ul>
+            </div>
+            
+        </aside>
+
+        <!-- Lưới sản phẩm -->
+        <main id="product-list" class="lg:w-3/4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <!-- Sản phẩm sẽ được thêm vào đây bằng JavaScript -->
+        </main>
+    </div>
+
+    <script>
+        // Dữ liệu sản phẩm mẫu (có thể thay thế bằng dữ liệu từ API)
+        const products = [
+            {
+                name: "Đồng Hồ Thông Minh Series X",
+                price: 2500000,
+                originalPrice: 3600000,
+                discount: 30,
+                sold: "1.2k",
+                location: "Hà Nội",
+                category: "accessories",
+                brand: "Samsung",
+                image: "https://placehold.co/600x600/FF5722/FFFFFF?text=Sản+phẩm+1",
+                rating: 5,
+            },
+            {
+                name: "Tai Nghe Không Dây Pro-T",
+                price: 1250000,
+                originalPrice: 1500000,
+                discount: 15,
+                sold: "900",
+                location: "TP. Hồ Chí Minh",
+                category: "audio",
+                brand: "Sony",
+                image: "https://placehold.co/600x600/FF5722/FFFFFF?text=Sản+phẩm+2",
+                rating: 4,
+            },
+            {
+                name: "Tivi Thông Minh 4K Ultra",
+                price: 15000000,
+                originalPrice: 20000000,
+                discount: 25,
+                sold: "250",
+                location: "TP. Hồ Chí Minh",
+                category: "tv",
+                brand: "Samsung",
+                image: "https://placehold.co/600x600/FF5722/FFFFFF?text=TV+4K",
+                rating: 5,
+            },
+            {
+                name: "Máy Ảnh Kỹ Thuật Số Pro-Z",
+                price: 15000000,
+                originalPrice: 30000000,
+                discount: 50,
+                sold: "200",
+                location: "TP. Hồ Chí Minh",
+                category: "camera",
+                brand: "Sony",
+                image: "https://placehold.co/600x600/FF5722/FFFFFF?text=Sản+phẩm+3",
+                rating: 4,
+            },
+            {
+                name: "Laptop Ultrabook Light 2024",
+                price: 22000000,
+                originalPrice: 24500000,
+                discount: 10,
+                sold: "500",
+                location: "Hà Nội",
+                category: "laptop",
+                brand: "Apple",
+                image: "https://placehold.co/600x600/FF5722/FFFFFF?text=Sản+phẩm+4",
+                rating: 5,
+            },
+            {
+                name: "Loa Bluetooth di động R400",
+                price: 850000,
+                originalPrice: 1050000,
+                discount: 20,
+                sold: "2k",
+                location: "Đà Nẵng",
+                category: "audio",
+                brand: "Xiaomi",
+                image: "https://placehold.co/600x600/FF5722/FFFFFF?text=Sản+phẩm+5",
+                rating: 3,
+            },
+            {
+                name: "Máy Tính Bảng Pro Tab S8",
+                price: 12000000,
+                originalPrice: 14000000,
+                discount: 14,
+                sold: "850",
+                location: "Hà Nội",
+                category: "tablet",
+                brand: "Samsung",
+                image: "https://placehold.co/600x600/FF5722/FFFFFF?text=Tablet+S8",
+                rating: 5,
+            },
+            {
+                name: "Thiết Bị Nhà Thông Minh All-in-One",
+                price: 3500000,
+                originalPrice: 4200000,
+                discount: 17,
+                sold: "1.8k",
+                location: "TP. Hồ Chí Minh",
+                category: "smart-home",
+                brand: "Xiaomi",
+                image: "https://placehold.co/600x600/FF5722/FFFFFF?text=Smart+Home",
+                rating: 4,
+            },
+        ];
+        
+        // Dữ liệu sản phẩm gốc để reset lọc
+        const originalProducts = [...products];
+
+        // Lấy các element HTML
+        const productList = document.getElementById('product-list');
+        const priceRange = document.getElementById('price-range');
+        const maxPriceSpan = document.getElementById('max-price');
+        const clearFiltersBtn = document.getElementById('clear-filters-btn');
+        const sortBySelect = document.getElementById('sort-by');
+
+        const filterCategoryButtons = document.querySelectorAll('.filter-category');
+        const filterBrandButtons = document.querySelectorAll('.filter-brand');
+        const filterLocationButtons = document.querySelectorAll('.filter-location');
+        const filterRatingButtons = document.querySelectorAll('.filter-rating');
+
+        let currentFilters = {
+            price: priceRange.value,
+            category: null,
+            brand: null,
+            location: null,
+            rating: null,
+        };
+        let currentSort = 'default';
+
+        // Hàm định dạng tiền tệ Việt Nam
+        const formatCurrency = (amount) => {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
+        };
+        
+        // Hàm chuyển đổi số lượng đã bán (ví dụ: "1.2k" -> 1200)
+        const parseSoldCount = (soldString) => {
+            if (soldString.toLowerCase().endsWith('k')) {
+                return parseFloat(soldString) * 1000;
+            }
+            return parseInt(soldString);
+        };
+
+        // Hàm hiển thị sản phẩm
+        const renderProducts = (filteredProducts) => {
+            productList.innerHTML = ''; // Xóa danh sách sản phẩm cũ
+
+            if (filteredProducts.length === 0) {
+                productList.innerHTML = `
+                    <div class="col-span-full text-center py-10 text-gray-500">
+                        Không tìm thấy sản phẩm nào phù hợp.
+                    </div>
+                `;
+                return;
+            }
+
+            filteredProducts.forEach(product => {
+                const filledStars = '★'.repeat(product.rating);
+                const emptyStars = '☆'.repeat(5 - product.rating);
+
+                const productCard = `
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                        <!-- Thẻ giảm giá -->
+                        <div class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Giảm ${product.discount}%
+                        </div>
+                        <!-- Nút Yêu thích -->
+                        <button class="absolute top-2 right-2 bg-white rounded-full p-1 text-red-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5A5.4 5.4 0 017.5 3c1.74 0 3.41.81 4.5 2.09A5.4 5.4 0 0116.5 3c3.27 0 5.8 3.08 5.5 6.5-0.3 3.42-3.7 6.5-8.55 11.52L12 21.35z"/>
+                            </svg>
+                        </button>
+                        <!-- Hình ảnh sản phẩm -->
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-40 object-cover">
+                        <div class="p-3">
+                            <!-- Tên sản phẩm -->
+                            <h3 class="text-sm font-medium text-gray-800 line-clamp-2 min-h-10">${product.name}</h3>
+                            <!-- Giá -->
+                            <div class="mt-2">
+                                <span class="text-lg font-bold text-orange-500">${formatCurrency(product.price)}</span>
+                                <span class="text-xs text-gray-400 line-through ml-2">${formatCurrency(product.originalPrice)}</span>
+                            </div>
+                            <!-- Đánh giá, đã bán và địa điểm -->
+                            <div class="flex justify-between items-center text-xs text-gray-500 mt-2">
+                                <div class="flex items-center">
+                                    <span class="text-yellow-400">${filledStars}</span><span class="text-gray-300">${emptyStars}</span>
+                                    <span class="ml-2">Đã bán ${product.sold}</span>
+                                </div>
+                                <span>${product.location}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productList.innerHTML += productCard;
+            });
+        };
+
+        // Hàm thực hiện sắp xếp sản phẩm
+        const sortProducts = (productsToSort) => {
+            switch (currentSort) {
+                case 'price-asc':
+                    return productsToSort.sort((a, b) => a.price - b.price);
+                case 'price-desc':
+                    return productsToSort.sort((a, b) => b.price - a.price);
+                case 'sold-desc':
+                    return productsToSort.sort((a, b) => parseSoldCount(b.sold) - parseSoldCount(a.sold));
+                default:
+                    return productsToSort;
+            }
+        };
+
+        // Hàm thực hiện lọc và sắp xếp sản phẩm
+        const filterAndSortProducts = () => {
+            let filtered = [...originalProducts]; // Bắt đầu từ danh sách gốc để lọc lại
+
+            // Lọc theo giá
+            if (currentFilters.price) {
+                filtered = filtered.filter(product => product.price <= currentFilters.price);
+            }
+            // Lọc theo loại sản phẩm
+            if (currentFilters.category && currentFilters.category !== 'all') {
+                filtered = filtered.filter(product => product.category === currentFilters.category);
+            }
+            // Lọc theo thương hiệu
+            if (currentFilters.brand) {
+                filtered = filtered.filter(product => product.brand === currentFilters.brand);
+            }
+            // Lọc theo vị trí
+            if (currentFilters.location) {
+                filtered = filtered.filter(product => product.location === currentFilters.location);
+            }
+            // Lọc theo đánh giá
+            if (currentFilters.rating) {
+                filtered = filtered.filter(product => product.rating >= currentFilters.rating);
+            }
+
+            // Sắp xếp sản phẩm sau khi lọc
+            const sorted = sortProducts(filtered);
+            
+            renderProducts(sorted);
+        };
+
+        // Hàm xử lý class active cho các nút lọc
+        const setActiveClass = (buttons, selectedValue) => {
+            buttons.forEach(button => {
+                const datasetKey = Object.keys(button.dataset)[0];
+                if (button.dataset[datasetKey] === selectedValue) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        };
+
+        // Xử lý sự kiện khi thanh trượt giá thay đổi
+        priceRange.addEventListener('input', (e) => {
+            const price = parseInt(e.target.value);
+            maxPriceSpan.textContent = formatCurrency(price);
+            currentFilters.price = price;
+            filterAndSortProducts();
+        });
+
+        // Xử lý sự kiện khi click vào nút lọc
+        const setupFilterButtons = (buttons, filterName) => {
+            buttons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const value = e.target.dataset[filterName];
+                    currentFilters[filterName] = currentFilters[filterName] === value ? null : value;
+                    if (filterName === 'category') {
+                        currentFilters.category = value; // Đảm bảo "all" được chọn
+                    }
+                    filterAndSortProducts();
+                    setActiveClass(buttons, currentFilters[filterName]);
+                });
+            });
+        };
+
+        setupFilterButtons(filterCategoryButtons, 'category');
+        setupFilterButtons(filterBrandButtons, 'brand');
+        setupFilterButtons(filterLocationButtons, 'location');
+        setupFilterButtons(filterRatingButtons, 'rating');
+
+        // Xử lý sự kiện khi chọn tùy chọn sắp xếp
+        sortBySelect.addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            filterAndSortProducts();
+        });
+
+        // Xử lý nút xóa tất cả bộ lọc
+        clearFiltersBtn.addEventListener('click', () => {
+            currentFilters = {
+                price: priceRange.max, // Reset giá về mức tối đa
+                category: null,
+                brand: null,
+                location: null,
+                rating: null,
+            };
+            priceRange.value = priceRange.max;
+            maxPriceSpan.textContent = formatCurrency(priceRange.max);
+            
+            const allFilterButtons = document.querySelectorAll('.filter-button');
+            allFilterButtons.forEach(button => button.classList.remove('active'));
+
+            filterAndSortProducts();
+        });
+
+        // Hiển thị tất cả sản phẩm ban đầu
+        window.onload = () => {
+            filterAndSortProducts();
+        };
+    </script>
+
+</body>
+</html>
