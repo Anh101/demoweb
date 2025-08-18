@@ -63,7 +63,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuData = [
         {
           name: "Thời trang Việt",
-            brandImages: [ "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+1", "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+2", "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+3", "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+4", "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+5", "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Thời trang Nam", children: ["Áo sơ mi, áo polo, áo thun", "Áo polo, Tshirt", "Quần âu, kaki, jeans, short" , "Áo khoác", "Giày dép da", " Vlazer, vest, Comlpe", "Sịp, Đùi", "Giày dép thể thao", "Túi, cặp, Ví da", "Phụ Kiện thời trang"] },
               { name: "Thời trang Nữ", children: ["Váy liền, Đầm công sở", "Đầm dạo phố, Đầm dự tiệc", "Đầm maxi, Váy hai dây mùa hè", "Áo dài Việt", "Áo công sơ", "Quần culottes – quần suông", "Chân váy, Quần short nữ", "Đồ mặc nhà cao cấp", "Túi xách tay – túi đeo chéo", "Giày cao gót", "Giày búp bê – giày lười nữ", "Dép sandal nữ", "Ví nữ, phụ kiện thời trang"] },
@@ -77,7 +84,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Gia dụng & Đời sống Việt", 
-            brandImages: [ "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G1", "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G2", "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G3", "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G4", "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G5", "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Đồ dùng nhà bếp cao cấp", children: ["Nồi chảo", "Dụng cụ pha trà, cà phê", "Bình thủy tinh, bình giữ nhiệt"] },
               { name: "Đồ nội thất nhỏ", children: ["Đèn trang trí", "Tranh treo tường", "Thảm trang trí"] },
@@ -86,7 +100,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Đặc sản vùng miền – Ẩm thực truyền thống", 
-            brandImages: [ "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D1", "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D2", "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D3", "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D4", "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D5", "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Đặc sản nước chấm – gia vị", children: ["Nước mắm truyền thống", "Tương ớt – mắm nêm thủ công", "Muối chấm – muối tôm"] },
               { name: "Bánh mứt truyền thống", children: ["Bánh cốm – bánh chưng – bánh phu thê", "Mứt gừng – mứt dừa", "Bánh đậu xanh – bánh in"] },
@@ -95,7 +116,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Thực phẩm hữu cơ & Sống xanh", 
-            brandImages: [ "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T1", "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T2", "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T3", "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T4", "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T5", "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Rau củ, ngũ cốc hữu cơ", children: ["Hạt điều – hạt mắc ca – hạt sen", "Gạo hữu cơ – gạo lứt", "Tinh bột nghệ – bột rau"] },
               { name: "Đồ uống tốt cho sức khỏe", children: ["Nước detox – nước ép lạnh", "Trà hoa – trà thảo dược", "Giấm trái cây – mật ong"] },
@@ -104,7 +132,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Mỹ phẩm – Chăm sóc cá nhân", 
-            brandImages: [ "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M1", "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M2", "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M3", "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M4", "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M5", "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Dưỡng da – làm sạch tự nhiên", children: ["Sữa rửa mặt – nước hoa hồng", "Mặt nạ – serum thảo dược", "Kem dưỡng ẩm – dưỡng trắng"] },
               { name: "Dầu gội, chăm sóc tóc", children: ["Dầu gội bồ kết – thảo mộc", "Tinh dầu dưỡng tóc – serum"] },
@@ -113,7 +148,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Quà tặng – Doanh nghiệp – Văn hoá", 
-            brandImages: [ "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q1", "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q2", "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q3", "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q4", "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q5", "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Quà Tết – Lễ tặng sang trọng", children: ["Giỏ quà đặc sản", "Hộp quà thảo dược", "Set quà trà – bánh – mứt"] },
               { name: "Đồ lưu niệm văn hoá", children: ["Tranh – tượng gỗ", "Bộ thư pháp – sổ tay"] },
@@ -122,7 +164,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Y học cổ truyền – Phục hồi sức khỏe", 
-            brandImages: [ "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y1", "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y2", "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y3", "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y4", "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y5", "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Thảo dược – thuốc Nam", children: ["Cao lá – cao xoa – cao dán", "Trà dược – ngâm rượu", "Bột thảo dược uống"] },
               { name: "Phục hồi thể chất – xương khớp", children: ["Dụng cụ massage – đá nóng", "Đai lưng – chườm nóng thảo mộc", "Xông hơi – xông thảo dược"] }
@@ -130,7 +179,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Thủ công mỹ nghệ – Làng nghề", 
-            brandImages: [ "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC1", "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC2", "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC3", "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC4", "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC5", "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Gốm sứ – Mây tre – Sơn mài", children: ["Bình gốm – chén bát", "Giỏ tre – rổ tre", "Tranh sơn mài – hộp sơn mài"] },
               { name: "Trang trí nghệ thuật", children: ["Tranh treo – tượng nhỏ", "Đèn ngủ – đèn bàn thủ công"] },
@@ -139,7 +195,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Dụng cụ & Thiết bị thể thao", 
-            brandImages: [ "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT1", "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT2", "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT3", "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT4", "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT5", "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Yoga – Thiền – Fitness tại nhà", children: ["Thảm yoga – gạch yoga", "Bóng tập – dây kháng lực", "Ghế thiền – gối ngồi"] },
               { name: "Thể thao ngoài trời", children: ["Dụng cụ cầu lông – bóng bàn", "Dụng cụ đi bộ – trekking"] }
@@ -147,7 +210,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Sản phẩm handmade – Sáng tạo Việt", 
-            brandImages: [ "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM1", "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM2", "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM3", "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM4", "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM5", "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Đồ trang trí sáng tạo", children: ["Đèn giấy – tranh cắt giấy", "Bình hoa vải – phụ kiện decor"] },
               { name: "Phụ kiện cá nhân handmade", children: ["Túi vải – ví da thủ công", "Trang sức làm tay – phụ kiện gỗ"] },
@@ -156,7 +226,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Đồ chơi – Quà tặng trẻ em", 
-            brandImages: [ "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC1", "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC2", "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC3", "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC4", "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC5", "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Đồ chơi an toàn Việt", children: ["Bộ đồ chơi gỗ – xếp hình", "Đồ chơi lắp ráp – đồ chơi trí tuệ"] },
               { name: "Quà tặng sinh nhật, trung thu", children: ["Lồng đèn giấy – đồ thủ công", "Set vẽ – tô tượng – đồ chơi giáo dục"] }
@@ -164,7 +241,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Sản phẩm cho người Việt xa quê – Việt kiều", 
-            brandImages: [ "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK1", "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK2", "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK3", "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK4", "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK5", "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Đặc sản quê nhà tiện gửi đi xa", children: ["Đặc sản khô – đóng hộp", "Hộp quà truyền thống", "Thực phẩm dễ bảo quản – gửi xa"] },
               { name: "Đồ lưu niệm mang bản sắc Việt", children: ["Tranh – tượng – đồ mỹ nghệ", "Quà tặng Tết – lễ truyền thống"] }
@@ -207,11 +291,15 @@ document.addEventListener('DOMContentLoaded', function () {
         brandImageColumn.innerHTML = '';
         const images = menuData[index].brandImages;
         if (images && images.length > 0) {
-            images.forEach(imageUrl => {
+            images.forEach(brand => {
+                const a = document.createElement('a');
+                a.href = brand.link;
+                a.target = "_blank"; // Tùy chọn: Mở trong tab mới
                 const img = document.createElement('img');
-                img.src = imageUrl;
+                img.src = brand.src;
                 img.alt = "Brand Image";
-                brandImageColumn.appendChild(img);
+                a.appendChild(img);
+                brandImageColumn.appendChild(a);
             });
         }
         
@@ -351,7 +439,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const bodyMenuData = [
           {
             name: "Thời trang Việt",
-            brandImages: [ "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+1", "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+2", "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+3", "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+4", "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+5", "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0d6efd/ffffff?text=Brand+6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Thời trang Nam", children: ["Áo sơ mi, áo polo, áo thun", "Áo polo, Tshirt", "Quần âu, kaki, jeans, short" , "Áo khoác", "Giày dép da", " Vlazer, vest, Comlpe", "Sịp, Đùi", "Giày dép thể thao", "Túi, cặp, Ví da", "Phụ Kiện thời trang"] },
               { name: "Thời trang Nữ", children: ["Váy liền, Đầm công sở", "Đầm dạo phố, Đầm dự tiệc", "Đầm maxi, Váy hai dây mùa hè", "Áo dài Việt", "Áo công sơ", "Quần culottes – quần suông", "Chân váy, Quần short nữ", "Đồ mặc nhà cao cấp", "Túi xách tay – túi đeo chéo", "Giày cao gót", "Giày búp bê – giày lười nữ", "Dép sandal nữ", "Ví nữ, phụ kiện thời trang"] },
@@ -365,7 +460,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Gia dụng & Đời sống Việt", 
-            brandImages: [ "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G1", "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G2", "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G3", "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G4", "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G5", "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/28a745/ffffff?text=Brand+G6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Đồ dùng nhà bếp cao cấp", children: ["Nồi chảo", "Dụng cụ pha trà, cà phê", "Bình thủy tinh, bình giữ nhiệt"] },
               { name: "Đồ nội thất nhỏ", children: ["Đèn trang trí", "Tranh treo tường", "Thảm trang trí"] },
@@ -374,7 +476,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Đặc sản vùng miền – Ẩm thực truyền thống", 
-            brandImages: [ "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D1", "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D2", "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D3", "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D4", "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D5", "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/dc3545/ffffff?text=Brand+D6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Đặc sản nước chấm – gia vị", children: ["Nước mắm truyền thống", "Tương ớt – mắm nêm thủ công", "Muối chấm – muối tôm"] },
               { name: "Bánh mứt truyền thống", children: ["Bánh cốm – bánh chưng – bánh phu thê", "Mứt gừng – mứt dừa", "Bánh đậu xanh – bánh in"] },
@@ -383,7 +492,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Thực phẩm hữu cơ & Sống xanh", 
-            brandImages: [ "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T1", "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T2", "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T3", "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T4", "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T5", "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/198754/ffffff?text=Brand+T6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Rau củ, ngũ cốc hữu cơ", children: ["Hạt điều – hạt mắc ca – hạt sen", "Gạo hữu cơ – gạo lứt", "Tinh bột nghệ – bột rau"] },
               { name: "Đồ uống tốt cho sức khỏe", children: ["Nước detox – nước ép lạnh", "Trà hoa – trà thảo dược", "Giấm trái cây – mật ong"] },
@@ -392,7 +508,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Mỹ phẩm – Chăm sóc cá nhân", 
-            brandImages: [ "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M1", "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M2", "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M3", "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M4", "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M5", "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/fd7e14/ffffff?text=Brand+M6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Dưỡng da – làm sạch tự nhiên", children: ["Sữa rửa mặt – nước hoa hồng", "Mặt nạ – serum thảo dược", "Kem dưỡng ẩm – dưỡng trắng"] },
               { name: "Dầu gội, chăm sóc tóc", children: ["Dầu gội bồ kết – thảo mộc", "Tinh dầu dưỡng tóc – serum"] },
@@ -401,7 +524,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Quà tặng – Doanh nghiệp – Văn hoá", 
-            brandImages: [ "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q1", "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q2", "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q3", "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q4", "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q5", "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/6f42c1/ffffff?text=Brand+Q6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Quà Tết – Lễ tặng sang trọng", children: ["Giỏ quà đặc sản", "Hộp quà thảo dược", "Set quà trà – bánh – mứt"] },
               { name: "Đồ lưu niệm văn hoá", children: ["Tranh – tượng gỗ", "Bộ thư pháp – sổ tay"] },
@@ -410,7 +540,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Y học cổ truyền – Phục hồi sức khỏe", 
-            brandImages: [ "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y1", "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y2", "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y3", "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y4", "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y5", "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/d63384/ffffff?text=Brand+Y6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Thảo dược – thuốc Nam", children: ["Cao lá – cao xoa – cao dán", "Trà dược – ngâm rượu", "Bột thảo dược uống"] },
               { name: "Phục hồi thể chất – xương khớp", children: ["Dụng cụ massage – đá nóng", "Đai lưng – chườm nóng thảo mộc", "Xông hơi – xông thảo dược"] }
@@ -418,7 +555,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Thủ công mỹ nghệ – Làng nghề", 
-            brandImages: [ "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC1", "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC2", "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC3", "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC4", "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC5", "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/757575/ffffff?text=Brand+TC6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Gốm sứ – Mây tre – Sơn mài", children: ["Bình gốm – chén bát", "Giỏ tre – rổ tre", "Tranh sơn mài – hộp sơn mài"] },
               { name: "Trang trí nghệ thuật", children: ["Tranh treo – tượng nhỏ", "Đèn ngủ – đèn bàn thủ công"] },
@@ -427,7 +571,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Dụng cụ & Thiết bị thể thao", 
-            brandImages: [ "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT1", "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT2", "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT3", "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT4", "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT5", "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/20c997/ffffff?text=Brand+TT6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Yoga – Thiền – Fitness tại nhà", children: ["Thảm yoga – gạch yoga", "Bóng tập – dây kháng lực", "Ghế thiền – gối ngồi"] },
               { name: "Thể thao ngoài trời", children: ["Dụng cụ cầu lông – bóng bàn", "Dụng cụ đi bộ – trekking"] }
@@ -435,7 +586,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Sản phẩm handmade – Sáng tạo Việt", 
-            brandImages: [ "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM1", "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM2", "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM3", "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM4", "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM5", "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/0dcaf0/ffffff?text=Brand+HM6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Đồ trang trí sáng tạo", children: ["Đèn giấy – tranh cắt giấy", "Bình hoa vải – phụ kiện decor"] },
               { name: "Phụ kiện cá nhân handmade", children: ["Túi vải – ví da thủ công", "Trang sức làm tay – phụ kiện gỗ"] },
@@ -444,7 +602,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Đồ chơi – Quà tặng trẻ em", 
-            brandImages: [ "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC1", "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC2", "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC3", "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC4", "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC5", "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/ffc107/000000?text=Brand+DC6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Đồ chơi an toàn Việt", children: ["Bộ đồ chơi gỗ – xếp hình", "Đồ chơi lắp ráp – đồ chơi trí tuệ"] },
               { name: "Quà tặng sinh nhật, trung thu", children: ["Lồng đèn giấy – đồ thủ công", "Set vẽ – tô tượng – đồ chơi giáo dục"] }
@@ -452,7 +617,14 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           { 
             name: "Sản phẩm cho người Việt xa quê – Việt kiều", 
-            brandImages: [ "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK1", "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK2", "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK3", "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK4", "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK5", "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK6" ],
+            brandImages: [ 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK1", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK2", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK3", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK4", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK5", link: "https://anh101.github.io/demoweb/Brand.html" }, 
+                { src: "https://via.placeholder.com/180x80/adb5bd/ffffff?text=Brand+VK6", link: "https://anh101.github.io/demoweb/Brand.html" } 
+            ],
             children: [
               { name: "Đặc sản quê nhà tiện gửi đi xa", children: ["Đặc sản khô – đóng hộp", "Hộp quà truyền thống", "Thực phẩm dễ bảo quản – gửi xa"] },
               { name: "Đồ lưu niệm mang bản sắc Việt", children: ["Tranh – tượng – đồ mỹ nghệ", "Quà tặng Tết – lễ truyền thống"] }
@@ -488,11 +660,15 @@ document.addEventListener('DOMContentLoaded', function () {
             brandImageColumnBody.innerHTML = '';
             const images = bodyMenuData[level2Index].brandImages;
             if (images && images.length > 0) {
-                images.forEach(imageUrl => {
+                images.forEach(brand => {
+                    const a = document.createElement('a');
+                    a.href = brand.link;
+                    a.target = "_blank";
                     const img = document.createElement('img');
-                    img.src = imageUrl;
+                    img.src = brand.src;
                     img.alt = "Brand Image";
-                    brandImageColumnBody.appendChild(img);
+                    a.appendChild(img);
+                    brandImageColumnBody.appendChild(a);
                 });
             }
         }
@@ -785,3 +961,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
