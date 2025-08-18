@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flash Sale Hấp Dẫn</title>
+    <!-- Thư viện Font Awesome cho các icon, ví dụ: icon chứng nhận -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Định nghĩa biến CSS để dễ dàng thay đổi màu sắc */
         :root {
             --primary-color: #ff4500;
             --secondary-color: #ff7f50;
@@ -17,12 +19,14 @@
             --badge-color: #e74c3c;
         }
 
+        /* Đặt lại các thuộc tính mặc định của trình duyệt */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        /* Cấu hình phông chữ và màu nền cho toàn bộ trang */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--background-color);
@@ -30,6 +34,7 @@
             line-height: 1.6;
         }
 
+        /* Tiêu đề trang */
         .header {
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: #fff;
@@ -44,6 +49,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
+        /* Bộ đếm ngược thời gian */
         .countdown-container {
             font-size: 1.2rem;
             display: flex;
@@ -58,6 +64,7 @@
             color: #ffff00;
         }
 
+        /* Container cho các sản phẩm, sử dụng Grid để tạo layout responsive */
         .product-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -67,6 +74,7 @@
             margin: 0 auto;
         }
 
+        /* Card sản phẩm */
         .product-card {
             background: var(--card-background);
             border-radius: 12px;
@@ -83,6 +91,7 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
+        /* Nhãn hiển thị % giảm giá */
         .sale-badge {
             position: absolute;
             top: 10px;
@@ -95,6 +104,7 @@
             font-weight: bold;
         }
 
+        /* Ảnh sản phẩm */
         .product-image {
             width: 100%;
             height: 200px;
@@ -107,11 +117,13 @@
             transform: scale(1.05);
         }
 
+        /* Thông tin sản phẩm */
         .product-info {
             padding: 1rem;
             text-align: left;
         }
 
+        /* Chứng nhận hàng chính hãng */
         .product-info .certified {
             color: #28a745;
             font-weight: bold;
@@ -134,6 +146,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Phần giá sản phẩm */
         .price-container {
             display: flex;
             flex-direction: column;
@@ -154,6 +167,7 @@
             color: var(--primary-color);
         }
 
+        /* Nút mua hàng */
         .buy-button {
             display: inline-block;
             background-color: var(--primary-color);
@@ -170,6 +184,7 @@
             background-color: var(--secondary-color);
         }
 
+        /* Chân trang */
         .footer {
             text-align: center;
             padding: 1.5rem;
@@ -179,6 +194,7 @@
             margin-top: 2rem;
         }
 
+        /* Responsive design cho màn hình nhỏ hơn 768px */
         @media (max-width: 768px) {
             .product-container {
                 padding: 1rem;
@@ -202,20 +218,21 @@
     </header>
 
     <main class="product-container">
-        </main>
+        <!-- Sản phẩm sẽ được thêm vào đây bằng JavaScript -->
+    </main>
 
     <footer class="footer">
         <p>&copy; 2024 Flash Sale. All rights reserved.</p>
     </footer>
 
     <script>
-        // Dữ liệu mẫu cho 50 sản phẩm
+        // Dữ liệu mẫu cho 50 sản phẩm với các ảnh placeholder đa dạng
         const products = [
             {
                 id: 1,
                 name: 'Điện Thoại Thông Minh XYZ',
                 brand: 'TechPro',
-                image: 'https://via.placeholder.com/400x400/FF5733/FFFFFF?text=Product+1',
+                image: 'https://placehold.co/400x400/52B788/FFFFFF?text=Phone',
                 price: 15000000,
                 salePrice: 12500000,
                 isCertified: true
@@ -224,7 +241,7 @@
                 id: 2,
                 name: 'Máy Tính Xách Tay Siêu Mỏng',
                 brand: 'UltraBook',
-                image: 'https://via.placeholder.com/400x400/33FF57/FFFFFF?text=Product+2',
+                image: 'https://placehold.co/400x400/2A9D8F/FFFFFF?text=Laptop',
                 price: 25000000,
                 salePrice: 20000000,
                 isCertified: true
@@ -233,7 +250,7 @@
                 id: 3,
                 name: 'Tai Nghe Chống Ồn Cao Cấp',
                 brand: 'SoundWave',
-                image: 'https://via.placeholder.com/400x400/3357FF/FFFFFF?text=Product+3',
+                image: 'https://placehold.co/400x400/E9C46A/FFFFFF?text=Headphones',
                 price: 3500000,
                 salePrice: 2800000,
                 isCertified: true
@@ -242,7 +259,7 @@
                 id: 4,
                 name: 'Đồng Hồ Thông Minh',
                 brand: 'SmartGear',
-                image: 'https://via.placeholder.com/400x400/8A2BE2/FFFFFF?text=Product+4',
+                image: 'https://placehold.co/400x400/F4A261/FFFFFF?text=Watch',
                 price: 5000000,
                 salePrice: 4000000,
                 isCertified: false
@@ -251,7 +268,7 @@
                 id: 5,
                 name: 'Bàn Phím Cơ Gaming RGB',
                 brand: 'GamePro',
-                image: 'https://via.placeholder.com/400x400/FFD700/000000?text=Product+5',
+                image: 'https://placehold.co/400x400/E76F51/FFFFFF?text=Keyboard',
                 price: 2000000,
                 salePrice: 1500000,
                 isCertified: true
@@ -260,7 +277,7 @@
                 id: 6,
                 name: 'Chuột Không Dây Ergonomic',
                 brand: 'ComfortTech',
-                image: 'https://via.placeholder.com/400x400/4B0082/FFFFFF?text=Product+6',
+                image: 'https://placehold.co/400x400/264653/FFFFFF?text=Mouse',
                 price: 800000,
                 salePrice: 600000,
                 isCertified: true
@@ -269,7 +286,7 @@
                 id: 7,
                 name: 'Ổ Cứng SSD 1TB',
                 brand: 'DataSpeed',
-                image: 'https://via.placeholder.com/400x400/008080/FFFFFF?text=Product+7',
+                image: 'https://placehold.co/400x400/008080/FFFFFF?text=SSD',
                 price: 2800000,
                 salePrice: 2100000,
                 isCertified: false
@@ -278,7 +295,7 @@
                 id: 8,
                 name: 'Máy Pha Cà Phê Tự Động',
                 brand: 'CoffeeMaster',
-                image: 'https://via.placeholder.com/400x400/DAA520/000000?text=Product+8',
+                image: 'https://placehold.co/400x400/4F7942/FFFFFF?text=Coffee+Machine',
                 price: 8000000,
                 salePrice: 6500000,
                 isCertified: true
@@ -287,7 +304,7 @@
                 id: 9,
                 name: 'Robot Hút Bụi Thông Minh',
                 brand: 'CleanBot',
-                image: 'https://via.placeholder.com/400x400/BDB76B/FFFFFF?text=Product+9',
+                image: 'https://placehold.co/400x400/96A590/FFFFFF?text=Robot',
                 price: 7000000,
                 salePrice: 5500000,
                 isCertified: true
@@ -296,7 +313,7 @@
                 id: 10,
                 name: 'Lò Vi Sóng Điện Tử',
                 brand: 'HomeChef',
-                image: 'https://via.placeholder.com/400x400/CD5C5C/FFFFFF?text=Product+10',
+                image: 'https://placehold.co/400x400/5C881A/FFFFFF?text=Microwave',
                 price: 3200000,
                 salePrice: 2500000,
                 isCertified: false
@@ -305,7 +322,7 @@
                 id: 11,
                 name: 'Tivi 4K QLED 55 inch',
                 brand: 'VisionPro',
-                image: 'https://via.placeholder.com/400x400/87CEEB/000000?text=Product+11',
+                image: 'https://placehold.co/400x400/0A2342/FFFFFF?text=TV',
                 price: 18000000,
                 salePrice: 14000000,
                 isCertified: true
@@ -314,7 +331,7 @@
                 id: 12,
                 name: 'Máy Lọc Không Khí',
                 brand: 'PureAir',
-                image: 'https://via.placeholder.com/400x400/90EE90/000000?text=Product+12',
+                image: 'https://placehold.co/400x400/2A7F62/FFFFFF?text=Air+Purifier',
                 price: 4500000,
                 salePrice: 3500000,
                 isCertified: true
@@ -323,7 +340,7 @@
                 id: 13,
                 name: 'Máy Rửa Bát Mini',
                 brand: 'CleanDish',
-                image: 'https://via.placeholder.com/400x400/FFB6C1/000000?text=Product+13',
+                image: 'https://placehold.co/400x400/80B391/FFFFFF?text=Dishwasher',
                 price: 6000000,
                 salePrice: 4800000,
                 isCertified: false
@@ -332,7 +349,7 @@
                 id: 14,
                 name: 'Máy Giặt Lồng Ngang',
                 brand: 'LaundryMate',
-                image: 'https://via.placeholder.com/400x400/DDA0DD/000000?text=Product+14',
+                image: 'https://placehold.co/400x400/FFD9C0/000000?text=Washing+Machine',
                 price: 10000000,
                 salePrice: 8000000,
                 isCertified: true
@@ -341,7 +358,7 @@
                 id: 15,
                 name: 'Tủ Lạnh Side-by-Side',
                 brand: 'CoolSpace',
-                image: 'https://via.placeholder.com/400x400/F08080/000000?text=Product+15',
+                image: 'https://placehold.co/400x400/C8A2C8/FFFFFF?text=Fridge',
                 price: 22000000,
                 salePrice: 18000000,
                 isCertified: true
@@ -350,7 +367,7 @@
                 id: 16,
                 name: 'Loa Bluetooth Di Động',
                 brand: 'AudioLink',
-                image: 'https://via.placeholder.com/400x400/20B2AA/FFFFFF?text=Product+16',
+                image: 'https://placehold.co/400x400/7F00FF/FFFFFF?text=Speaker',
                 price: 1500000,
                 salePrice: 1200000,
                 isCertified: false
@@ -359,7 +376,7 @@
                 id: 17,
                 name: 'Máy Chiếu Mini',
                 brand: 'ProjectorMax',
-                image: 'https://via.placeholder.com/400x400/ADD8E6/000000?text=Product+17',
+                image: 'https://placehold.co/400x400/240046/FFFFFF?text=Projector',
                 price: 4000000,
                 salePrice: 3200000,
                 isCertified: true
@@ -368,7 +385,7 @@
                 id: 18,
                 name: 'Máy Chơi Game Cầm Tay',
                 brand: 'GameGo',
-                image: 'https://via.placeholder.com/400x400/E6E6FA/000000?text=Product+18',
+                image: 'https://placehold.co/400x400/2667FF/FFFFFF?text=Handheld+Console',
                 price: 7000000,
                 salePrice: 5500000,
                 isCertified: true
@@ -377,7 +394,7 @@
                 id: 19,
                 name: 'Drone Camera 4K',
                 brand: 'SkyCam',
-                image: 'https://via.placeholder.com/400x400/AFEEEE/000000?text=Product+19',
+                image: 'https://placehold.co/400x400/A2D2FF/FFFFFF?text=Drone',
                 price: 12000000,
                 salePrice: 9500000,
                 isCertified: true
@@ -386,7 +403,7 @@
                 id: 20,
                 name: 'Xe Đạp Điện Gấp Gọn',
                 brand: 'EcoBike',
-                image: 'https://via.placeholder.com/400x400/F0FFF0/000000?text=Product+20',
+                image: 'https://placehold.co/400x400/6A4C93/FFFFFF?text=E-Bike',
                 price: 11000000,
                 salePrice: 8800000,
                 isCertified: false
@@ -395,7 +412,7 @@
                 id: 21,
                 name: 'Máy Chạy Bộ Đa Năng',
                 brand: 'FitLife',
-                image: 'https://via.placeholder.com/400x400/FFDEAD/000000?text=Product+21',
+                image: 'https://placehold.co/400x400/3E1B89/FFFFFF?text=Treadmill',
                 price: 15000000,
                 salePrice: 12000000,
                 isCertified: true
@@ -404,7 +421,7 @@
                 id: 22,
                 name: 'Máy Massage Cổ',
                 brand: 'Relaxo',
-                image: 'https://via.placeholder.com/400x400/FFFACD/000000?text=Product+22',
+                image: 'https://placehold.co/400x400/7752B3/FFFFFF?text=Massager',
                 price: 1800000,
                 salePrice: 1400000,
                 isCertified: false
@@ -413,7 +430,7 @@
                 id: 23,
                 name: 'Máy Đọc Sách Điện Tử',
                 brand: 'ReadWell',
-                image: 'https://via.placeholder.com/400x400/FDF5E6/000000?text=Product+23',
+                image: 'https://placehold.co/400x400/5B487A/FFFFFF?text=E-Reader',
                 price: 3500000,
                 salePrice: 2800000,
                 isCertified: true
@@ -422,7 +439,7 @@
                 id: 24,
                 name: 'Đèn LED Thông Minh',
                 brand: 'Luminara',
-                image: 'https://via.placeholder.com/400x400/FFEBCD/000000?text=Product+24',
+                image: 'https://placehold.co/400x400/F0FFF0/000000?text=Lamp',
                 price: 800000,
                 salePrice: 650000,
                 isCertified: false
@@ -431,7 +448,7 @@
                 id: 25,
                 name: 'Bộ Lắp Ráp Robot STEM',
                 brand: 'RoboKit',
-                image: 'https://via.placeholder.com/400x400/FAFAD2/000000?text=Product+25',
+                image: 'https://placehold.co/400x400/48D1CC/000000?text=Robot+Kit',
                 price: 2500000,
                 salePrice: 2000000,
                 isCertified: true
@@ -440,7 +457,7 @@
                 id: 26,
                 name: 'Máy in 3D',
                 brand: 'PrintMaster',
-                image: 'https://via.placeholder.com/400x400/F0E68C/000000?text=Product+26',
+                image: 'https://placehold.co/400x400/F0E68C/000000?text=3D+Printer',
                 price: 10000000,
                 salePrice: 8000000,
                 isCertified: true
@@ -449,7 +466,7 @@
                 id: 27,
                 name: 'Bộ Dụng Cụ Sửa Chữa Đa Năng',
                 brand: 'FixIt',
-                image: 'https://via.placeholder.com/400x400/E9967A/000000?text=Product+27',
+                image: 'https://placehold.co/400x400/E9967A/000000?text=Tools',
                 price: 1200000,
                 salePrice: 900000,
                 isCertified: false
@@ -458,7 +475,7 @@
                 id: 28,
                 name: 'Kính Thực Tế Ảo VR',
                 brand: 'RealityMax',
-                image: 'https://via.placeholder.com/400x400/FA8072/FFFFFF?text=Product+28',
+                image: 'https://placehold.co/400x400/FA8072/FFFFFF?text=VR+Headset',
                 price: 6000000,
                 salePrice: 4800000,
                 isCertified: true
@@ -467,7 +484,7 @@
                 id: 29,
                 name: 'Camera Hành Trình 4K',
                 brand: 'RoadCam',
-                image: 'https://via.placeholder.com/400x400/CD5C5C/FFFFFF?text=Product+29',
+                image: 'https://placehold.co/400x400/B22222/FFFFFF?text=Dashcam',
                 price: 2800000,
                 salePrice: 2200000,
                 isCertified: false
@@ -476,7 +493,7 @@
                 id: 30,
                 name: 'Thảm Tập Yoga Cao Cấp',
                 brand: 'YogaFit',
-                image: 'https://via.placeholder.com/400x400/F08080/FFFFFF?text=Product+30',
+                image: 'https://placehold.co/400x400/008000/FFFFFF?text=Yoga+Mat',
                 price: 500000,
                 salePrice: 350000,
                 isCertified: true
@@ -485,7 +502,7 @@
                 id: 31,
                 name: 'Bộ Ghế Bàn Ăn Thông Minh',
                 brand: 'SmartHome',
-                image: 'https://via.placeholder.com/400x400/FF6347/FFFFFF?text=Product+31',
+                image: 'https://placehold.co/400x400/228B22/FFFFFF?text=Dining+Set',
                 price: 15000000,
                 salePrice: 11000000,
                 isCertified: true
@@ -494,7 +511,7 @@
                 id: 32,
                 name: 'Bếp Từ Đôi',
                 brand: 'CookMaster',
-                image: 'https://via.placeholder.com/400x400/FF4500/FFFFFF?text=Product+32',
+                image: 'https://placehold.co/400x400/7CFC00/000000?text=Induction+Cooker',
                 price: 7000000,
                 salePrice: 5500000,
                 isCertified: true
@@ -503,7 +520,7 @@
                 id: 33,
                 name: 'Bàn Là Hơi Nước',
                 brand: 'SteamPro',
-                image: 'https://via.placeholder.com/400x400/FFA07A/FFFFFF?text=Product+33',
+                image: 'https://placehold.co/400x400/FFD700/000000?text=Steam+Iron',
                 price: 1800000,
                 salePrice: 1400000,
                 isCertified: false
@@ -512,7 +529,7 @@
                 id: 34,
                 name: 'Máy Hút Bụi Cầm Tay',
                 brand: 'HandyClean',
-                image: 'https://via.placeholder.com/400x400/FF7F50/FFFFFF?text=Product+34',
+                image: 'https://placehold.co/400x400/FFB830/000000?text=Handheld+Vacuum',
                 price: 1200000,
                 salePrice: 900000,
                 isCertified: true
@@ -521,7 +538,7 @@
                 id: 35,
                 name: 'Bình Nóng Lạnh Thông Minh',
                 brand: 'AquaSmart',
-                image: 'https://via.placeholder.com/400x400/FA8072/FFFFFF?text=Product+35',
+                image: 'https://placehold.co/400x400/F4B5B5/000000?text=Water+Heater',
                 price: 3500000,
                 salePrice: 2800000,
                 isCertified: true
@@ -530,7 +547,7 @@
                 id: 36,
                 name: 'Đèn Bàn Chống Cận',
                 brand: 'EyeCare',
-                image: 'https://via.placeholder.com/400x400/E9967A/FFFFFF?text=Product+36',
+                image: 'https://placehold.co/400x400/C0C0C0/000000?text=Desk+Lamp',
                 price: 600000,
                 salePrice: 450000,
                 isCertified: false
@@ -539,7 +556,7 @@
                 id: 37,
                 name: 'Máy Phun Sương',
                 brand: 'Mistify',
-                image: 'https://via.placeholder.com/400x400/CD5C5C/FFFFFF?text=Product+37',
+                image: 'https://placehold.co/400x400/87CEFA/000000?text=Humidifier',
                 price: 800000,
                 salePrice: 600000,
                 isCertified: true
@@ -548,7 +565,7 @@
                 id: 38,
                 name: 'Cân Điện Tử Thông Minh',
                 brand: 'SmartScale',
-                image: 'https://via.placeholder.com/400x400/F08080/FFFFFF?text=Product+38',
+                image: 'https://placehold.co/400x400/B0E0E6/000000?text=Scale',
                 price: 500000,
                 salePrice: 380000,
                 isCertified: true
@@ -557,7 +574,7 @@
                 id: 39,
                 name: 'Máy Đo Huyết Áp Điện Tử',
                 brand: 'HealthMonitor',
-                image: 'https://via.placeholder.com/400x400/FF4500/FFFFFF?text=Product+39',
+                image: 'https://placehold.co/400x400/AFEEEE/000000?text=BP+Monitor',
                 price: 1500000,
                 salePrice: 1200000,
                 isCertified: false
@@ -566,7 +583,7 @@
                 id: 40,
                 name: 'Bộ Sạc Nhanh Đa Năng',
                 brand: 'PowerBoost',
-                image: 'https://via.placeholder.com/400x400/FF6347/FFFFFF?text=Product+40',
+                image: 'https://placehold.co/400x400/FFDEAD/000000?text=Charger',
                 price: 400000,
                 salePrice: 300000,
                 isCertified: true
@@ -575,7 +592,7 @@
                 id: 41,
                 name: 'Ốp Lưng Điện Thoại Da Cao Cấp',
                 brand: 'LuxuryCase',
-                image: 'https://via.placeholder.com/400x400/FFA07A/FFFFFF?text=Product+41',
+                image: 'https://placehold.co/400x400/D2B48C/000000?text=Phone+Case',
                 price: 350000,
                 salePrice: 250000,
                 isCertified: true
@@ -584,7 +601,7 @@
                 id: 42,
                 name: 'Kính Cường Lực Chống Xước',
                 brand: 'GuardPro',
-                image: 'https://via.placeholder.com/400x400/FF7F50/FFFFFF?text=Product+42',
+                image: 'https://placehold.co/400x400/F5DEB3/000000?text=Screen+Protector',
                 price: 150000,
                 salePrice: 90000,
                 isCertified: false
@@ -593,7 +610,7 @@
                 id: 43,
                 name: 'Giá Đỡ Laptop Tản Nhiệt',
                 brand: 'CoolStand',
-                image: 'https://via.placeholder.com/400x400/FA8072/FFFFFF?text=Product+43',
+                image: 'https://placehold.co/400x400/FFEBCD/000000?text=Laptop+Stand',
                 price: 450000,
                 salePrice: 350000,
                 isCertified: true
@@ -602,7 +619,7 @@
                 id: 44,
                 name: 'Bàn Di Chuột Gaming RGB',
                 brand: 'RGBMaster',
-                image: 'https://via.placeholder.com/400x400/E9967A/FFFFFF?text=Product+44',
+                image: 'https://placehold.co/400x400/A0522D/FFFFFF?text=Mousepad',
                 price: 500000,
                 salePrice: 380000,
                 isCertified: false
@@ -611,7 +628,7 @@
                 id: 45,
                 name: 'Túi Chống Sốc Laptop',
                 brand: 'ProtectCase',
-                image: 'https://via.placeholder.com/400x400/CD5C5C/FFFFFF?text=Product+45',
+                image: 'https://placehold.co/400x400/CD5C5C/FFFFFF?text=Laptop+Bag',
                 price: 300000,
                 salePrice: 220000,
                 isCertified: true
@@ -620,7 +637,7 @@
                 id: 46,
                 name: 'Ổ Cắm Điện Đa Năng',
                 brand: 'MultiPlug',
-                image: 'https://via.placeholder.com/400x400/F08080/FFFFFF?text=Product+46',
+                image: 'https://placehold.co/400x400/F08080/FFFFFF?text=Power+Strip',
                 price: 250000,
                 salePrice: 180000,
                 isCertified: true
@@ -629,7 +646,7 @@
                 id: 47,
                 name: 'Thẻ Nhớ MicroSD 128GB',
                 brand: 'SpeedCard',
-                image: 'https://via.placeholder.com/400x400/FF4500/FFFFFF?text=Product+47',
+                image: 'https://placehold.co/400x400/FF4500/FFFFFF?text=SD+Card',
                 price: 500000,
                 salePrice: 400000,
                 isCertified: false
@@ -638,7 +655,7 @@
                 id: 48,
                 name: 'Bút Cảm Ứng Stylus',
                 brand: 'PenSmart',
-                image: 'https://via.placeholder.com/400x400/FF6347/FFFFFF?text=Product+48',
+                image: 'https://placehold.co/400x400/FF6347/FFFFFF?text=Stylus+Pen',
                 price: 800000,
                 salePrice: 600000,
                 isCertified: true
@@ -647,7 +664,7 @@
                 id: 49,
                 name: 'Loa Vi Tính 2.1',
                 brand: 'PC Audio',
-                image: 'https://via.placeholder.com/400x400/FFA07A/FFFFFF?text=Product+49',
+                image: 'https://placehold.co/400x400/FFA07A/FFFFFF?text=PC+Speaker',
                 price: 1500000,
                 salePrice: 1200000,
                 isCertified: true
@@ -656,7 +673,7 @@
                 id: 50,
                 name: 'Webcam HD 1080p',
                 brand: 'LiveCam',
-                image: 'https://via.placeholder.com/400x400/FF7F50/FFFFFF?text=Product+50',
+                image: 'https://placehold.co/400x400/FF7F50/FFFFFF?text=Webcam',
                 price: 1200000,
                 salePrice: 900000,
                 isCertified: false
