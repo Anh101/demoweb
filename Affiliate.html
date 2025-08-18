@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nền tảng Affiliate HHV</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Phần Tiêu đề (Header) -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo Nền tảng -->
+            <a href="#" class="text-2xl font-bold text-indigo-600">
+                Affiliate HHV
+            </a>
+            
+            <!-- Menu điều hướng (Desktop) -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#success-stories" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Người Thành Công</a>
+                <a href="#top-brands" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Thương Hiệu</a>
+                <a href="#hhv-difference" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Sự Khác Biệt</a>
+                <a href="#tradition" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Truyền Thống</a>
+                <a href="#sharing-corner" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Góc Chia Sẻ</a>
+                <a href="#knowledge" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Kiến Thức</a>
+            </nav>
+
+            <!-- Nút mở menu (di động) -->
+            <button id="menu-button" class="md:hidden text-gray-600 hover:text-indigo-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+
+        <!-- Menu di động (mặc định ẩn) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner pb-4">
+            <nav class="flex flex-col items-center space-y-2">
+                <a href="#success-stories" class="block py-2 text-gray-600 hover:text-indigo-600 transition-colors duration-300">Người Thành Công</a>
+                <a href="#top-brands" class="block py-2 text-gray-600 hover:text-indigo-600 transition-colors duration-300">Thương Hiệu</a>
+                <a href="#hhv-difference" class="block py-2 text-gray-600 hover:text-indigo-600 transition-colors duration-300">Sự Khác Biệt</a>
+                <a href="#tradition" class="block py-2 text-gray-600 hover:text-indigo-600 transition-colors duration-300">Truyền Thống</a>
+                <a href="#sharing-corner" class="block py-2 text-gray-600 hover:text-indigo-600 transition-colors duration-300">Góc Chia Sẻ</a>
+                <a href="#knowledge" class="block py-2 text-gray-600 hover:text-indigo-600 transition-colors duration-300">Kiến Thức</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        
+        <!-- Phần Giới thiệu chung -->
+        <section class="bg-indigo-600 text-white py-20 px-4 text-center rounded-b-3xl shadow-xl">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">Nền tảng Affiliate HHV</h1>
+            <p class="text-lg sm:text-xl max-w-3xl mx-auto mb-8">
+                HHV là cầu nối vững chắc giúp bạn và các thương hiệu hàng đầu cùng nhau phát triển và tạo ra giá trị bền vững.
+            </p>
+        </section>
+
+        <!-- Khối 1: Những người thành công trong nền tảng Affiliate HHV -->
+        <section id="success-stories" class="py-16 px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Những người thành công trên HHV</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Hồ sơ Người thành công 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden p-6 text-center hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/150x150/E5E7EB/4B5563?text=Anh+Hùng" alt="Anh Hùng" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover">
+                    <h4 class="text-xl font-semibold mb-2">Nguyễn Văn Hùng</h4>
+                    <p class="text-gray-600 mb-4">Chuyên gia Affiliate ngành Mỹ phẩm</p>
+                    <p class="text-sm italic text-gray-500">
+                        "HHV đã giúp tôi tăng thu nhập gấp 5 lần chỉ trong 6 tháng. Đây là nền tảng đáng tin cậy nhất tôi từng làm việc."
+                    </p>
+                </div>
+                <!-- Hồ sơ Người thành công 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden p-6 text-center hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/150x150/E5E7EB/4B5563?text=Chị+Lan" alt="Chị Lan" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover">
+                    <h4 class="text-xl font-semibold mb-2">Phạm Thị Lan</h4>
+                    <p class="text-gray-600 mb-4">Content Creator mảng Thời trang</p>
+                    <p class="text-sm italic text-gray-500">
+                        "Sản phẩm trên HHV rất chất lượng, giúp tôi dễ dàng tạo ra nội dung thu hút và chuyển đổi cao."
+                    </p>
+                </div>
+                <!-- Hồ sơ Người thành công 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden p-6 text-center hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/150x150/E5E7EB/4B5563?text=Anh+Minh" alt="Anh Minh" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover">
+                    <h4 class="text-xl font-semibold mb-2">Trần Văn Minh</h4>
+                    <p class="text-gray-600 mb-4">Blogger về Công nghệ</p>
+                    <p class="text-sm italic text-gray-500">
+                        "Hệ thống báo cáo của HHV rất minh bạch và chi tiết, giúp tôi theo dõi hiệu suất dễ dàng."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dòng ngăn cách -->
+        <hr class="my-16 border-t-4 border-gray-200">
+
+        <!-- Khối 2: Những thương hiệu cao cấp hàng đầu HHV phân phối -->
+        <section id="top-brands" class="py-16 px-4 bg-white rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Thương hiệu cao cấp hàng đầu</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <!-- Logo Thương hiệu 1 -->
+                <div class="p-4 bg-gray-100 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="https://placehold.co/150x80/D1D5DB/1F2937?text=Brand+A" alt="Brand A" class="max-w-full h-auto">
+                </div>
+                <!-- Logo Thương hiệu 2 -->
+                <div class="p-4 bg-gray-100 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="https://placehold.co/150x80/D1D5DB/1F2937?text=Brand+B" alt="Brand B" class="max-w-full h-auto">
+                </div>
+                <!-- Logo Thương hiệu 3 -->
+                <div class="p-4 bg-gray-100 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="https://placehold.co/150x80/D1D5DB/1F2937?text=Brand+C" alt="Brand C" class="max-w-full h-auto">
+                </div>
+                <!-- Logo Thương hiệu 4 -->
+                <div class="p-4 bg-gray-100 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="https://placehold.co/150x80/D1D5DB/1F2937?text=Brand+D" alt="Brand D" class="max-w-full h-auto">
+                </div>
+                <!-- Logo Thương hiệu 5 -->
+                <div class="p-4 bg-gray-100 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="https://placehold.co/150x80/D1D5DB/1F2937?text=Brand+E" alt="Brand E" class="max-w-full h-auto">
+                </div>
+                <!-- Logo Thương hiệu 6 -->
+                <div class="p-4 bg-gray-100 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="https://placehold.co/150x80/D1D5DB/1F2937?text=Brand+F" alt="Brand F" class="max-w-full h-auto">
+                </div>
+                <!-- Logo Thương hiệu 7 -->
+                <div class="p-4 bg-gray-100 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="https://placehold.co/150x80/D1D5DB/1F2937?text=Brand+G" alt="Brand G" class="max-w-full h-auto">
+                </div>
+                <!-- Logo Thương hiệu 8 -->
+                <div class="p-4 bg-gray-100 rounded-lg shadow-md flex items-center justify-center">
+                    <img src="https://placehold.co/150x80/D1D5DB/1F2937?text=Brand+H" alt="Brand H" class="max-w-full h-auto">
+                </div>
+            </div>
+        </section>
+
+        <!-- Dòng ngăn cách -->
+        <hr class="my-16 border-t-4 border-gray-200">
+
+        <!-- Khối 3: Sự khác biệt Affiliate HHV -->
+        <section id="hhv-difference" class="py-16 px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Sự khác biệt của Affiliate HHV</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Thẻ khác biệt 1 -->
+                <div class="p-6 bg-white rounded-lg shadow-lg text-center hover:shadow-2xl transition-shadow duration-300">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 9H7v2h2v2h2v-2h2V9h-2V7H9v2z"></path></svg>
+                    <h4 class="text-xl font-semibold mb-2">Hoa hồng hấp dẫn</h4>
+                    <p class="text-gray-600">Cơ chế hoa hồng cao nhất thị trường, giúp bạn tối đa hóa lợi nhuận.</p>
+                </div>
+                <!-- Thẻ khác biệt 2 -->
+                <div class="p-6 bg-white rounded-lg shadow-lg text-center hover:shadow-2xl transition-shadow duration-300">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 9H7v2h2v2h2v-2h2V9h-2V7H9v2z"></path></svg>
+                    <h4 class="text-xl font-semibold mb-2">Hỗ trợ chuyên sâu</h4>
+                    <p class="text-gray-600">Đội ngũ hỗ trợ nhiệt tình, tư vấn chiến lược và giải quyết mọi vấn đề 24/7.</p>
+                </div>
+                <!-- Thẻ khác biệt 3 -->
+                <div class="p-6 bg-white rounded-lg shadow-lg text-center hover:shadow-2xl transition-shadow duration-300">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 9H7v2h2v2h2v-2h2V9h-2V7H9v2z"></path></svg>
+                    <h4 class="text-xl font-semibold mb-2">Đa dạng sản phẩm</h4>
+                    <p class="text-gray-600">Hàng ngàn sản phẩm cao cấp từ các thương hiệu uy tín, đa dạng ngành hàng.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dòng ngăn cách -->
+        <hr class="my-16 border-t-4 border-gray-200">
+
+        <!-- Khối 4: HHV với truyền thống -->
+        <section id="tradition" class="py-16 px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">HHV với Truyền thống</h2>
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-lg leading-relaxed mb-4">
+                    Được kế thừa từ những giá trị truyền thống bền vững, HHV không chỉ là một nền tảng kinh doanh mà còn là một cộng đồng nơi sự trung thực, uy tín và sự hỗ trợ lẫn nhau được đặt lên hàng đầu. Chúng tôi tin rằng, thành công bền vững phải được xây dựng trên nền tảng đạo đức và sự tin tưởng.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    HHV luôn nỗ lực để trở thành người bạn đồng hành tin cậy, giúp bạn phát triển sự nghiệp và cuộc sống một cách thịnh vượng và hạnh phúc.
+                </p>
+            </div>
+        </section>
+
+        <!-- Dòng ngăn cách -->
+        <hr class="my-16 border-t-4 border-gray-200">
+
+        <!-- Khối 5: Góc chia sẻ -->
+        <section id="sharing-corner" class="py-16 px-4 bg-white rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Góc chia sẻ</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Thẻ chia sẻ 1 -->
+                <div class="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h4 class="text-xl font-semibold mb-2">Chia sẻ về kinh nghiệm Affiliate</h4>
+                    <p class="text-gray-600 mb-4">
+                        Chia sẻ từ chuyên gia: Cách xây dựng kênh nội dung hiệu quả và thu hút traffic miễn phí.
+                    </p>
+                    <a href="#" class="text-indigo-600 font-semibold hover:underline">Đọc thêm ></a>
+                </div>
+                <!-- Thẻ chia sẻ 2 -->
+                <div class="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h4 class="text-xl font-semibold mb-2">Review chi tiết về sản phẩm HOT</h4>
+                    <p class="text-gray-600 mb-4">
+                        Video và bài viết phân tích chuyên sâu về một sản phẩm đang "làm mưa làm gió" trên thị trường.
+                    </p>
+                    <a href="#" class="text-indigo-600 font-semibold hover:underline">Xem ngay ></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dòng ngăn cách -->
+        <hr class="my-16 border-t-4 border-gray-200">
+
+        <!-- Khối 6: Kiến thức -->
+        <section id="knowledge" class="py-16 px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Kiến thức Affiliate</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Thẻ kiến thức 1 -->
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <h4 class="text-xl font-semibold mb-2">Các thuật ngữ cơ bản</h4>
+                    <p class="text-gray-600 mb-4">Tìm hiểu về các thuật ngữ quan trọng như CTR, EPC, CPC trong affiliate marketing.</p>
+                </div>
+                <!-- Thẻ kiến thức 2 -->
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <h4 class="text-xl font-semibold mb-2">Hướng dẫn tạo landing page</h4>
+                    <p class="text-gray-600 mb-4">Hướng dẫn từng bước cách tạo landing page chuyển đổi cao mà không cần biết code.</p>
+                </div>
+                <!-- Thẻ kiến thức 3 -->
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <h4 class="text-xl font-semibold mb-2">Cách chọn sản phẩm affiliate</h4>
+                    <p class="text-gray-600 mb-4">Những tiêu chí quan trọng giúp bạn lựa chọn sản phẩm phù hợp và dễ bán nhất.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 text-center rounded-t-3xl shadow-2xl mt-8">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Affiliate HHV. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript cho Mobile Menu -->
+    <script>
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
