@@ -27,12 +27,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px; /* Đảm bảo các hàng có chiều cao bằng nhau */
+    height: 60px; /* Giảm chiều cao của mỗi slide */
 }
 
 .brand-slider .swiper-slide img {
-    max-width: 130px;
+    max-width: 120px; /* Giảm chiều rộng tối đa của hình ảnh */
+    max-height: 50px; /* Thêm chiều cao tối đa để ngăn logo dài bị tràn */
+    width: auto;
     height: auto;
+    object-fit: contain; /* Đảm bảo hình ảnh vừa vặn mà không bị méo */
     filter: grayscale(100%);
     opacity: 0.7;
     transition: all 0.3s ease;
