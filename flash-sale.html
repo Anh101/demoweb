@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Sale Hấp Dẫn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff4500;
+            --secondary-color: #ff7f50;
+            --background-color: #f0f2f5;
+            --card-background: #fff;
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #ddd;
+            --badge-color: #e74c3c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-container {
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .countdown {
+            font-weight: bold;
+            color: #ffff00;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--card-background);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--badge-color);
+            color: #fff;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .product-info .certified {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-brand {
+            font-size: 0.9rem;
+            color: var(--light-text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .price-old {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+        }
+
+        .price-sale {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .buy-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--card-background);
+            color: var(--light-text-color);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                padding: 1rem;
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>✨ Flash Sale Khủng 🔥</h1>
+        <div class="countdown-container">
+            <span>Kết thúc sau: </span>
+            <div id="countdown" class="countdown"></div>
+        </div>
+    </header>
+
+    <main class="product-container">
+        </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Flash Sale. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Dữ liệu mẫu cho 50 sản phẩm
+        const products = [
+            {
+                id: 1,
+                name: 'Điện Thoại Thông Minh XYZ',
+                brand: 'TechPro',
+                image: 'https://via.placeholder.com/400x400/FF5733/FFFFFF?text=Product+1',
+                price: 15000000,
+                salePrice: 12500000,
+                isCertified: true
+            },
+            {
+                id: 2,
+                name: 'Máy Tính Xách Tay Siêu Mỏng',
+                brand: 'UltraBook',
+                image: 'https://via.placeholder.com/400x400/33FF57/FFFFFF?text=Product+2',
+                price: 25000000,
+                salePrice: 20000000,
+                isCertified: true
+            },
+            {
+                id: 3,
+                name: 'Tai Nghe Chống Ồn Cao Cấp',
+                brand: 'SoundWave',
+                image: 'https://via.placeholder.com/400x400/3357FF/FFFFFF?text=Product+3',
+                price: 3500000,
+                salePrice: 2800000,
+                isCertified: true
+            },
+            {
+                id: 4,
+                name: 'Đồng Hồ Thông Minh',
+                brand: 'SmartGear',
+                image: 'https://via.placeholder.com/400x400/8A2BE2/FFFFFF?text=Product+4',
+                price: 5000000,
+                salePrice: 4000000,
+                isCertified: false
+            },
+            {
+                id: 5,
+                name: 'Bàn Phím Cơ Gaming RGB',
+                brand: 'GamePro',
+                image: 'https://via.placeholder.com/400x400/FFD700/000000?text=Product+5',
+                price: 2000000,
+                salePrice: 1500000,
+                isCertified: true
+            },
+            {
+                id: 6,
+                name: 'Chuột Không Dây Ergonomic',
+                brand: 'ComfortTech',
+                image: 'https://via.placeholder.com/400x400/4B0082/FFFFFF?text=Product+6',
+                price: 800000,
+                salePrice: 600000,
+                isCertified: true
+            },
+            {
+                id: 7,
+                name: 'Ổ Cứng SSD 1TB',
+                brand: 'DataSpeed',
+                image: 'https://via.placeholder.com/400x400/008080/FFFFFF?text=Product+7',
+                price: 2800000,
+                salePrice: 2100000,
+                isCertified: false
+            },
+            {
+                id: 8,
+                name: 'Máy Pha Cà Phê Tự Động',
+                brand: 'CoffeeMaster',
+                image: 'https://via.placeholder.com/400x400/DAA520/000000?text=Product+8',
+                price: 8000000,
+                salePrice: 6500000,
+                isCertified: true
+            },
+            {
+                id: 9,
+                name: 'Robot Hút Bụi Thông Minh',
+                brand: 'CleanBot',
+                image: 'https://via.placeholder.com/400x400/BDB76B/FFFFFF?text=Product+9',
+                price: 7000000,
+                salePrice: 5500000,
+                isCertified: true
+            },
+            {
+                id: 10,
+                name: 'Lò Vi Sóng Điện Tử',
+                brand: 'HomeChef',
+                image: 'https://via.placeholder.com/400x400/CD5C5C/FFFFFF?text=Product+10',
+                price: 3200000,
+                salePrice: 2500000,
+                isCertified: false
+            },
+            {
+                id: 11,
+                name: 'Tivi 4K QLED 55 inch',
+                brand: 'VisionPro',
+                image: 'https://via.placeholder.com/400x400/87CEEB/000000?text=Product+11',
+                price: 18000000,
+                salePrice: 14000000,
+                isCertified: true
+            },
+            {
+                id: 12,
+                name: 'Máy Lọc Không Khí',
+                brand: 'PureAir',
+                image: 'https://via.placeholder.com/400x400/90EE90/000000?text=Product+12',
+                price: 4500000,
+                salePrice: 3500000,
+                isCertified: true
+            },
+            {
+                id: 13,
+                name: 'Máy Rửa Bát Mini',
+                brand: 'CleanDish',
+                image: 'https://via.placeholder.com/400x400/FFB6C1/000000?text=Product+13',
+                price: 6000000,
+                salePrice: 4800000,
+                isCertified: false
+            },
+            {
+                id: 14,
+                name: 'Máy Giặt Lồng Ngang',
+                brand: 'LaundryMate',
+                image: 'https://via.placeholder.com/400x400/DDA0DD/000000?text=Product+14',
+                price: 10000000,
+                salePrice: 8000000,
+                isCertified: true
+            },
+            {
+                id: 15,
+                name: 'Tủ Lạnh Side-by-Side',
+                brand: 'CoolSpace',
+                image: 'https://via.placeholder.com/400x400/F08080/000000?text=Product+15',
+                price: 22000000,
+                salePrice: 18000000,
+                isCertified: true
+            },
+            {
+                id: 16,
+                name: 'Loa Bluetooth Di Động',
+                brand: 'AudioLink',
+                image: 'https://via.placeholder.com/400x400/20B2AA/FFFFFF?text=Product+16',
+                price: 1500000,
+                salePrice: 1200000,
+                isCertified: false
+            },
+            {
+                id: 17,
+                name: 'Máy Chiếu Mini',
+                brand: 'ProjectorMax',
+                image: 'https://via.placeholder.com/400x400/ADD8E6/000000?text=Product+17',
+                price: 4000000,
+                salePrice: 3200000,
+                isCertified: true
+            },
+            {
+                id: 18,
+                name: 'Máy Chơi Game Cầm Tay',
+                brand: 'GameGo',
+                image: 'https://via.placeholder.com/400x400/E6E6FA/000000?text=Product+18',
+                price: 7000000,
+                salePrice: 5500000,
+                isCertified: true
+            },
+            {
+                id: 19,
+                name: 'Drone Camera 4K',
+                brand: 'SkyCam',
+                image: 'https://via.placeholder.com/400x400/AFEEEE/000000?text=Product+19',
+                price: 12000000,
+                salePrice: 9500000,
+                isCertified: true
+            },
+            {
+                id: 20,
+                name: 'Xe Đạp Điện Gấp Gọn',
+                brand: 'EcoBike',
+                image: 'https://via.placeholder.com/400x400/F0FFF0/000000?text=Product+20',
+                price: 11000000,
+                salePrice: 8800000,
+                isCertified: false
+            },
+            {
+                id: 21,
+                name: 'Máy Chạy Bộ Đa Năng',
+                brand: 'FitLife',
+                image: 'https://via.placeholder.com/400x400/FFDEAD/000000?text=Product+21',
+                price: 15000000,
+                salePrice: 12000000,
+                isCertified: true
+            },
+            {
+                id: 22,
+                name: 'Máy Massage Cổ',
+                brand: 'Relaxo',
+                image: 'https://via.placeholder.com/400x400/FFFACD/000000?text=Product+22',
+                price: 1800000,
+                salePrice: 1400000,
+                isCertified: false
+            },
+            {
+                id: 23,
+                name: 'Máy Đọc Sách Điện Tử',
+                brand: 'ReadWell',
+                image: 'https://via.placeholder.com/400x400/FDF5E6/000000?text=Product+23',
+                price: 3500000,
+                salePrice: 2800000,
+                isCertified: true
+            },
+            {
+                id: 24,
+                name: 'Đèn LED Thông Minh',
+                brand: 'Luminara',
+                image: 'https://via.placeholder.com/400x400/FFEBCD/000000?text=Product+24',
+                price: 800000,
+                salePrice: 650000,
+                isCertified: false
+            },
+            {
+                id: 25,
+                name: 'Bộ Lắp Ráp Robot STEM',
+                brand: 'RoboKit',
+                image: 'https://via.placeholder.com/400x400/FAFAD2/000000?text=Product+25',
+                price: 2500000,
+                salePrice: 2000000,
+                isCertified: true
+            },
+            {
+                id: 26,
+                name: 'Máy in 3D',
+                brand: 'PrintMaster',
+                image: 'https://via.placeholder.com/400x400/F0E68C/000000?text=Product+26',
+                price: 10000000,
+                salePrice: 8000000,
+                isCertified: true
+            },
+            {
+                id: 27,
+                name: 'Bộ Dụng Cụ Sửa Chữa Đa Năng',
+                brand: 'FixIt',
+                image: 'https://via.placeholder.com/400x400/E9967A/000000?text=Product+27',
+                price: 1200000,
+                salePrice: 900000,
+                isCertified: false
+            },
+            {
+                id: 28,
+                name: 'Kính Thực Tế Ảo VR',
+                brand: 'RealityMax',
+                image: 'https://via.placeholder.com/400x400/FA8072/FFFFFF?text=Product+28',
+                price: 6000000,
+                salePrice: 4800000,
+                isCertified: true
+            },
+            {
+                id: 29,
+                name: 'Camera Hành Trình 4K',
+                brand: 'RoadCam',
+                image: 'https://via.placeholder.com/400x400/CD5C5C/FFFFFF?text=Product+29',
+                price: 2800000,
+                salePrice: 2200000,
+                isCertified: false
+            },
+            {
+                id: 30,
+                name: 'Thảm Tập Yoga Cao Cấp',
+                brand: 'YogaFit',
+                image: 'https://via.placeholder.com/400x400/F08080/FFFFFF?text=Product+30',
+                price: 500000,
+                salePrice: 350000,
+                isCertified: true
+            },
+            {
+                id: 31,
+                name: 'Bộ Ghế Bàn Ăn Thông Minh',
+                brand: 'SmartHome',
+                image: 'https://via.placeholder.com/400x400/FF6347/FFFFFF?text=Product+31',
+                price: 15000000,
+                salePrice: 11000000,
+                isCertified: true
+            },
+            {
+                id: 32,
+                name: 'Bếp Từ Đôi',
+                brand: 'CookMaster',
+                image: 'https://via.placeholder.com/400x400/FF4500/FFFFFF?text=Product+32',
+                price: 7000000,
+                salePrice: 5500000,
+                isCertified: true
+            },
+            {
+                id: 33,
+                name: 'Bàn Là Hơi Nước',
+                brand: 'SteamPro',
+                image: 'https://via.placeholder.com/400x400/FFA07A/FFFFFF?text=Product+33',
+                price: 1800000,
+                salePrice: 1400000,
+                isCertified: false
+            },
+            {
+                id: 34,
+                name: 'Máy Hút Bụi Cầm Tay',
+                brand: 'HandyClean',
+                image: 'https://via.placeholder.com/400x400/FF7F50/FFFFFF?text=Product+34',
+                price: 1200000,
+                salePrice: 900000,
+                isCertified: true
+            },
+            {
+                id: 35,
+                name: 'Bình Nóng Lạnh Thông Minh',
+                brand: 'AquaSmart',
+                image: 'https://via.placeholder.com/400x400/FA8072/FFFFFF?text=Product+35',
+                price: 3500000,
+                salePrice: 2800000,
+                isCertified: true
+            },
+            {
+                id: 36,
+                name: 'Đèn Bàn Chống Cận',
+                brand: 'EyeCare',
+                image: 'https://via.placeholder.com/400x400/E9967A/FFFFFF?text=Product+36',
+                price: 600000,
+                salePrice: 450000,
+                isCertified: false
+            },
+            {
+                id: 37,
+                name: 'Máy Phun Sương',
+                brand: 'Mistify',
+                image: 'https://via.placeholder.com/400x400/CD5C5C/FFFFFF?text=Product+37',
+                price: 800000,
+                salePrice: 600000,
+                isCertified: true
+            },
+            {
+                id: 38,
+                name: 'Cân Điện Tử Thông Minh',
+                brand: 'SmartScale',
+                image: 'https://via.placeholder.com/400x400/F08080/FFFFFF?text=Product+38',
+                price: 500000,
+                salePrice: 380000,
+                isCertified: true
+            },
+            {
+                id: 39,
+                name: 'Máy Đo Huyết Áp Điện Tử',
+                brand: 'HealthMonitor',
+                image: 'https://via.placeholder.com/400x400/FF4500/FFFFFF?text=Product+39',
+                price: 1500000,
+                salePrice: 1200000,
+                isCertified: false
+            },
+            {
+                id: 40,
+                name: 'Bộ Sạc Nhanh Đa Năng',
+                brand: 'PowerBoost',
+                image: 'https://via.placeholder.com/400x400/FF6347/FFFFFF?text=Product+40',
+                price: 400000,
+                salePrice: 300000,
+                isCertified: true
+            },
+            {
+                id: 41,
+                name: 'Ốp Lưng Điện Thoại Da Cao Cấp',
+                brand: 'LuxuryCase',
+                image: 'https://via.placeholder.com/400x400/FFA07A/FFFFFF?text=Product+41',
+                price: 350000,
+                salePrice: 250000,
+                isCertified: true
+            },
+            {
+                id: 42,
+                name: 'Kính Cường Lực Chống Xước',
+                brand: 'GuardPro',
+                image: 'https://via.placeholder.com/400x400/FF7F50/FFFFFF?text=Product+42',
+                price: 150000,
+                salePrice: 90000,
+                isCertified: false
+            },
+            {
+                id: 43,
+                name: 'Giá Đỡ Laptop Tản Nhiệt',
+                brand: 'CoolStand',
+                image: 'https://via.placeholder.com/400x400/FA8072/FFFFFF?text=Product+43',
+                price: 450000,
+                salePrice: 350000,
+                isCertified: true
+            },
+            {
+                id: 44,
+                name: 'Bàn Di Chuột Gaming RGB',
+                brand: 'RGBMaster',
+                image: 'https://via.placeholder.com/400x400/E9967A/FFFFFF?text=Product+44',
+                price: 500000,
+                salePrice: 380000,
+                isCertified: false
+            },
+            {
+                id: 45,
+                name: 'Túi Chống Sốc Laptop',
+                brand: 'ProtectCase',
+                image: 'https://via.placeholder.com/400x400/CD5C5C/FFFFFF?text=Product+45',
+                price: 300000,
+                salePrice: 220000,
+                isCertified: true
+            },
+            {
+                id: 46,
+                name: 'Ổ Cắm Điện Đa Năng',
+                brand: 'MultiPlug',
+                image: 'https://via.placeholder.com/400x400/F08080/FFFFFF?text=Product+46',
+                price: 250000,
+                salePrice: 180000,
+                isCertified: true
+            },
+            {
+                id: 47,
+                name: 'Thẻ Nhớ MicroSD 128GB',
+                brand: 'SpeedCard',
+                image: 'https://via.placeholder.com/400x400/FF4500/FFFFFF?text=Product+47',
+                price: 500000,
+                salePrice: 400000,
+                isCertified: false
+            },
+            {
+                id: 48,
+                name: 'Bút Cảm Ứng Stylus',
+                brand: 'PenSmart',
+                image: 'https://via.placeholder.com/400x400/FF6347/FFFFFF?text=Product+48',
+                price: 800000,
+                salePrice: 600000,
+                isCertified: true
+            },
+            {
+                id: 49,
+                name: 'Loa Vi Tính 2.1',
+                brand: 'PC Audio',
+                image: 'https://via.placeholder.com/400x400/FFA07A/FFFFFF?text=Product+49',
+                price: 1500000,
+                salePrice: 1200000,
+                isCertified: true
+            },
+            {
+                id: 50,
+                name: 'Webcam HD 1080p',
+                brand: 'LiveCam',
+                image: 'https://via.placeholder.com/400x400/FF7F50/FFFFFF?text=Product+50',
+                price: 1200000,
+                salePrice: 900000,
+                isCertified: false
+            }
+        ];
+
+        const productContainer = document.querySelector('.product-container');
+        const countdownElement = document.getElementById('countdown');
+
+        // Hàm định dạng giá tiền
+        const formatCurrency = (price) => {
+            return new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            }).format(price);
+        };
+
+        // Hàm tính toán và hiển thị % giảm giá
+        const calculateDiscount = (price, salePrice) => {
+            const discount = ((price - salePrice) / price) * 100;
+            return Math.round(discount);
+        };
+
+        // Hàm tạo thẻ sản phẩm
+        const createProductCard = (product) => {
+            const card = document.createElement('div');
+            card.classList.add('product-card');
+
+            const discountPercentage = calculateDiscount(product.price, product.salePrice);
+            
+            card.innerHTML = `
+                <span class="sale-badge">-${discountPercentage}%</span>
+                <img src="${product.image}" alt="${product.name}" class="product-image">
+                <div class="product-info">
+                    ${product.isCertified ? `<span class="certified">Hàng Chính Hãng <i class="fas fa-check-circle"></i></span>` : ''}
+                    <h3 class="product-name">${product.name}</h3>
+                    <p class="product-brand">${product.brand}</p>
+                    <div class="price-container">
+                        <span class="price-old">${formatCurrency(product.price)}</span>
+                        <span class="price-sale">${formatCurrency(product.salePrice)}</span>
+                    </div>
+                    <a href="#" class="buy-button">Mua ngay</a>
+                </div>
+            `;
+
+            return card;
+        };
+
+        // Hiển thị sản phẩm ra trang web
+        products.forEach(product => {
+            const productCard = createProductCard(product);
+            productContainer.appendChild(productCard);
+        });
+
+
+        // Bộ đếm ngược thời gian
+        const flashSaleEndDate = new Date();
+        flashSaleEndDate.setHours(flashSaleEndDate.getHours() + 2); // Ví dụ: Flash sale kéo dài 2 giờ từ lúc tải trang
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = flashSaleEndDate.getTime() - now;
+
+            if (distance < 0) {
+                countdownElement.innerHTML = "Đã kết thúc!";
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+        };
+
+        // Cập nhật bộ đếm mỗi giây
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Gọi hàm một lần khi tải trang để tránh delay 1s đầu tiên
+    </script>
+</body>
+</html>
