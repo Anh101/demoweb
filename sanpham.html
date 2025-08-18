@@ -62,10 +62,26 @@
                         </div>
                         <span class="text-gray-500 text-sm ml-2">(120 đánh giá)</span>
                     </div>
+                    
+                    <div class="bg-red-500 text-white p-4 rounded-lg flex items-center justify-between mb-4 shadow-md">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-8a1 1 0 112 0v3a1 1 0 11-2 0v-3zm2-3a1 1 0 10-2 0 1 1 0 002 0z" clip-rule="evenodd"></path></svg>
+                            <span class="font-bold text-lg">Flash Sale</span>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm">Kết thúc trong</p>
+                            <div id="countdown-timer" class="font-bold text-xl space-x-1">
+                                <span class="bg-red-600 px-2 py-1 rounded">00</span>:
+                                <span class="bg-red-600 px-2 py-1 rounded">00</span>:
+                                <span class="bg-red-600 px-2 py-1 rounded">00</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <p class="text-3xl font-bold text-red-600 mb-4">
+                    <p class="text-3xl font-bold text-red-600 mb-2">
                         599.000đ
                         <span class="text-xl text-gray-400 line-through ml-2">799.000đ</span>
+                        <span class="text-base text-white bg-red-600 px-2 py-1 rounded-full ml-2">-25%</span>
                     </p>
                     <p class="text-sm text-gray-500 mb-4">
                         Thương hiệu: <span class="text-indigo-600 font-semibold">Tên Thương Hiệu</span> | Mã sản phẩm: <span class="font-semibold">SP001</span>
@@ -82,6 +98,25 @@
                         </button>
                     </div>
 
+                    <div class="flex items-center space-x-2 mt-6 p-4 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/30x30/FFFFFF/000000?text=🛡️" alt="Biểu tượng khiên bảo vệ" class="w-6 h-6">
+                        <span class="font-semibold text-gray-700">An Tâm Mua Sắm Cùng HHV</span>
+                        <div class="flex items-center space-x-4 text-gray-600 text-sm">
+                            <span class="flex items-center">
+                                <svg class="w-4 h-4 mr-1 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Trả hàng miễn phí 15 ngày
+                            </span>
+                            <span class="flex items-center">
+                                <svg class="w-4 h-4 mr-1 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Chính hãng 100%
+                            </span>
+                            <span class="flex items-center">
+                                <svg class="w-4 h-4 mr-1 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Miễn phí vận chuyển
+                            </span>
+                        </div>
+                    </div>
+                    
                     <div class="mb-6">
                         <h3 class="text-xl font-semibold mb-2">Mô tả ngắn</h3>
                         <p class="text-gray-700 leading-relaxed">
@@ -136,24 +171,54 @@
 
             <div class="mt-12">
                 <h3 class="text-2xl font-bold mb-4 text-indigo-600">Thông tin chi tiết</h3>
+                <div class="prose max-w-none text-gray-700 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                    <div>
+                        <div class="grid grid-cols-2 gap-4 items-center border-b pb-2 mb-2">
+                            <span class="font-semibold text-gray-500">Thương hiệu</span>
+                            <span class="font-medium text-gray-700">ABC</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 items-center border-b pb-2 mb-2">
+                            <span class="font-semibold text-gray-500">Xuất xứ thương hiệu</span>
+                            <span class="font-medium text-gray-700">Việt Nam</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 items-start border-b pb-2 mb-2">
+                            <span class="font-semibold text-gray-500">Chất liệu</span>
+                            <span class="font-medium text-gray-700">Làm từ .....</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 items-start border-b pb-2 mb-2">
+                            <span class="font-semibold text-gray-500">Hướng dẫn bảo quản</span>
+                            <span class="font-medium text-gray-700">Bỏ vào bếp lửa nếu không sử dụng</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="text-2xl font-bold mb-4 text-indigo-600">Mô tả sản phẩm</h3>
                 <div class="prose max-w-none text-gray-700">
-                    <p>Đây là phần mô tả chi tiết và đầy đủ về sản phẩm. Bạn có thể chèn các đoạn văn bản, hình ảnh, bảng biểu hoặc video để làm nổi bật các đặc điểm của sản phẩm.</p>
-                    <p><strong>Thông số kỹ thuật:</strong></p>
+                    <p>
+                        Sản phẩm <strong>Tên Sản Phẩm Tuyệt Vời</strong> được thiết kế để mang đến sự tiện lợi và hiệu quả tối đa cho người dùng. Với chất liệu [tên chất liệu] cao cấp, sản phẩm không chỉ bền bỉ mà còn an toàn cho sức khỏe.
+                    </p>
+                    <p>
+                        Đặc điểm nổi bật:
+                    </p>
                     <ul>
-                        <li>Kích thước: 10cm x 15cm x 5cm</li>
-                        <li>Chất liệu: Nhựa cao cấp</li>
-                        <li>Màu sắc: Xanh, Đỏ, Vàng</li>
-                        <li>Bảo hành: 12 tháng</li>
+                        <li><strong class="text-indigo-600">Thiết kế nhỏ gọn:</strong> Dễ dàng mang theo, phù hợp cho mọi hoạt động hàng ngày.</li>
+                        <li><strong class="text-indigo-600">Hiệu năng vượt trội:</strong> Tối ưu hóa hiệu suất, giúp bạn tiết kiệm thời gian và công sức.</li>
+                        <li><strong class="text-indigo-600">Đa dạng màu sắc:</strong> Nhiều lựa chọn màu sắc phong phú, thể hiện cá tính riêng của bạn.</li>
                     </ul>
                     <p>
-                        Sản phẩm này là lựa chọn hoàn hảo cho [đối tượng mục tiêu], giúp họ giải quyết [vấn đề] một cách hiệu quả. Với thiết kế nhỏ gọn, dễ dàng mang theo, bạn có thể sử dụng sản phẩm này ở bất cứ đâu.
+                        Ngoài ra, sản phẩm còn được tích hợp công nghệ [tên công nghệ] tiên tiến, mang lại trải nghiệm sử dụng mượt mà và thông minh. Chúng tôi cam kết sản phẩm 100% chính hãng và có chính sách bảo hành rõ ràng để bạn hoàn toàn yên tâm khi mua sắm.
                     </p>
+                    <div class="mt-6 flex justify-center">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Ảnh+Mô+tả+chi+tiết" alt="Ảnh minh họa mô tả chi tiết" class="rounded-lg shadow-lg">
+                    </div>
                 </div>
             </div>
 
             <div class="mt-12 bg-white p-6 rounded-lg shadow-xl">
                 <h3 class="text-2xl font-bold mb-4 text-indigo-600">Đánh giá sản phẩm</h3>
-                
+
                 <div class="mb-4">
                     <div class="flex items-center space-x-2 text-sm font-semibold mb-2">
                         <span class="text-gray-700">Lọc theo:</span>
@@ -172,8 +237,6 @@
                         <button class="px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors duration-200">
                             1 Sao
                         </button>
-                    </div>
-                    <div class="flex items-center space-x-4">
                         <button class="flex items-center space-x-2 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors duration-200">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h-3a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h19a2 2 0 0 0 2 -2v-10a2 2 0 0 0 -2 -2h-3l-4 -7z"></path><path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path></svg>
                             <span>Có Hình Ảnh</span>
@@ -184,109 +247,22 @@
                         </button>
                     </div>
                 </div>
+                
+                <div id="review-list" class="space-y-6">
+                    </div>
 
-                <div class="space-y-6" id="reviews-container">
-                    <div class="border-b pb-4 review-item">
-                        <div class="flex items-center mb-2">
-                            <img src="https://placehold.co/50x50/E5E7EB/4B5563?text=user" alt="Ảnh đại diện người dùng" class="w-10 h-10 rounded-full mr-4">
-                            <div>
-                                <h5 class="font-semibold">Nguyễn Thị A</h5>
-                                <div class="flex text-yellow-400">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700">
-                            "Sản phẩm rất tốt, đúng như mô tả. Giao hàng nhanh và đóng gói cẩn thận. Rất hài lòng!"
-                        </p>
+                <div id="pagination-container" class="mt-6 flex justify-center items-center space-x-2">
                     </div>
-                    <div class="border-b pb-4 review-item">
-                        <div class="flex items-center mb-2">
-                            <img src="https://placehold.co/50x50/E5E7EB/4B5563?text=user" alt="Ảnh đại diện người dùng" class="w-10 h-10 rounded-full mr-4">
-                            <div>
-                                <h5 class="font-semibold">Trần Văn B</h5>
-                                <div class="flex text-yellow-400">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700">
-                            "Hàng chất lượng, tôi sẽ ủng hộ shop dài dài."
-                        </p>
-                    </div>
-                     <div class="border-b pb-4 hidden review-item">
-                        <div class="flex items-center mb-2">
-                            <img src="https://placehold.co/50x50/E5E7EB/4B5563?text=user" alt="Ảnh đại diện người dùng" class="w-10 h-10 rounded-full mr-4">
-                            <div>
-                                <h5 class="font-semibold">Phạm Văn C</h5>
-                                <div class="flex text-yellow-400">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700">
-                            "Mọi người nên mua sản phẩm này!"
-                        </p>
-                    </div>
-                     <div class="border-b pb-4 hidden review-item">
-                        <div class="flex items-center mb-2">
-                            <img src="https://placehold.co/50x50/E5E7EB/4B5563?text=user" alt="Ảnh đại diện người dùng" class="w-10 h-10 rounded-full mr-4">
-                            <div>
-                                <h5 class="font-semibold">Lê Văn D</h5>
-                                <div class="flex text-yellow-400">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700">
-                            "Mua hàng rất nhanh gọn, sản phẩm dùng thích lắm!"
-                        </p>
-                    </div>
-                     <div class="border-b pb-4 hidden review-item">
-                        <div class="flex items-center mb-2">
-                            <img src="https://placehold.co/50x50/E5E7EB/4B5563?text=user" alt="Ảnh đại diện người dùng" class="w-10 h-10 rounded-full mr-4">
-                            <div>
-                                <h5 class="font-semibold">Mai Thị E</h5>
-                                <div class="flex text-yellow-400">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700">
-                            "Món đồ không thể thiếu của tôi!"
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex space-x-4 mt-6">
-                    <button id="show-more-reviews" class="flex-1 bg-white text-indigo-600 border border-indigo-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                        Xem thêm đánh giá
-                    </button>
-                    <button id="show-less-reviews" class="flex-1 bg-white text-indigo-600 border border-indigo-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-300 hidden">
-                        Rút gọn đánh giá
-                    </button>
-                </div>
             </div>
+
+            <section class="mt-12">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-indigo-600">Sản phẩm đã xem</h3>
+                    <a href="#" class="text-indigo-600 font-semibold hover:underline hidden" id="viewed-products-all">Xem tất cả</a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6" id="viewed-products-container">
+                    </div>
+            </section>
 
             <section class="mt-12">
                 <div class="flex justify-between items-center mb-6">
@@ -416,14 +392,12 @@
     </footer>
 
     <script>
-        // Logic cho menu di động
         const menuButton = document.getElementById('menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         menuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Logic cho bộ đếm số lượng
         const incrementButton = document.getElementById('increment-button');
         const decrementButton = document.getElementById('decrement-button');
         const quantityInput = document.getElementById('quantity-input');
@@ -440,7 +414,6 @@
             }
         });
 
-        // Logic thay đổi ảnh sản phẩm
         const mainImage = document.getElementById('main-product-image');
         const thumbnails = document.querySelectorAll('.thumbnail');
 
@@ -450,52 +423,170 @@
             });
         });
 
-        // Logic xem thêm/rút gọn đánh giá
-        const showMoreButton = document.getElementById('show-more-reviews');
-        const showLessButton = document.getElementById('show-less-reviews');
-        const reviews = document.querySelectorAll('.review-item');
-        const initialReviewsCount = 2; // Số đánh giá hiển thị ban đầu
-        const reviewsToShow = 10; // Số đánh giá hiển thị thêm mỗi lần bấm
+        const countdownElement = document.getElementById('countdown-timer');
 
-        let currentReviewsCount = initialReviewsCount;
+        function updateCountdown() {
+            // Lấy thời gian hiện tại
+            const now = new Date();
+            // Lấy thời gian kết thúc flash sale (ví dụ: ngày 18/08/2025, 23:59:59)
+            const endTime = new Date(2025, 7, 18, 23, 59, 59);
+            const timeLeft = endTime.getTime() - now.getTime();
 
-        // Ẩn tất cả đánh giá trừ 2 cái đầu tiên
-        reviews.forEach((review, index) => {
-            if (index >= initialReviewsCount) {
-                review.classList.add('hidden');
-            }
-        });
-
-        // Xử lý nút "Xem thêm"
-        showMoreButton.addEventListener('click', () => {
-            const nextReviewsStart = currentReviewsCount;
-            const nextReviewsEnd = nextReviewsStart + reviewsToShow;
-
-            for (let i = nextReviewsStart; i < nextReviewsEnd && i < reviews.length; i++) {
-                reviews[i].classList.remove('hidden');
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval);
+                countdownElement.innerHTML = `<span class="text-lg">Đã kết thúc!</span>`;
+                return;
             }
 
-            currentReviewsCount = nextReviewsEnd;
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            // Nếu đã hiển thị hết đánh giá, ẩn nút "Xem thêm" và hiện nút "Rút gọn"
-            if (currentReviewsCount >= reviews.length) {
-                showMoreButton.classList.add('hidden');
-                showLessButton.classList.remove('hidden');
-            }
-        });
+            const formattedHours = String(hours).padStart(2, '0');
+            const formattedMinutes = String(minutes).padStart(2, '0');
+            const formattedSeconds = String(seconds).padStart(2, '0');
 
-        // Xử lý nút "Rút gọn"
-        showLessButton.addEventListener('click', () => {
-            // Ẩn tất cả đánh giá và chỉ hiện lại 2 cái đầu tiên
-            reviews.forEach((review, index) => {
-                if (index >= initialReviewsCount) {
-                    review.classList.add('hidden');
+            countdownElement.innerHTML = `
+                <span class="bg-red-600 px-2 py-1 rounded">${formattedHours}</span>:
+                <span class="bg-red-600 px-2 py-1 rounded">${formattedMinutes}</span>:
+                <span class="bg-red-600 px-2 py-1 rounded">${formattedSeconds}</span>
+            `;
+        }
+        
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        const viewedProductsContainer = document.getElementById('viewed-products-container');
+        const productData = {
+            id: "SP001",
+            name: "Tên Sản Phẩm Tuyệt Vời",
+            price: "599.000đ",
+            image: "https://placehold.co/400x400/D1D5DB/1F2937?text=Sản+Phẩm+Chính",
+            url: "#"
+        };
+
+        function saveViewedProduct(product) {
+            let viewedProducts = JSON.parse(localStorage.getItem('viewedProducts')) || [];
+            const isProductExist = viewedProducts.some(p => p.id === product.id);
+            if (!isProductExist) {
+                viewedProducts.unshift(product);
+                if (viewedProducts.length > 10) {
+                    viewedProducts.pop();
                 }
+                localStorage.setItem('viewedProducts', JSON.stringify(viewedProducts));
+            }
+        }
+
+        function renderViewedProducts() {
+            let viewedProducts = JSON.parse(localStorage.getItem('viewedProducts')) || [];
+            if (viewedProducts.length > 0) {
+                viewedProductsContainer.innerHTML = '';
+                viewedProducts.forEach(product => {
+                    const productHtml = `
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <a href="${product.url}">
+                                <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                            </a>
+                            <div class="p-4">
+                                <h4 class="font-semibold text-lg truncate"><a href="${product.url}" class="hover:text-indigo-600 transition-colors duration-200">${product.name}</a></h4>
+                                <p class="text-lg font-bold text-red-600 mt-2">${product.price}</p>
+                                <button class="mt-4 w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300">
+                                    Thêm vào giỏ
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    viewedProductsContainer.innerHTML += productHtml;
+                });
+            } else {
+                viewedProductsContainer.innerHTML = '<p class="col-span-full text-center text-gray-500">Bạn chưa xem sản phẩm nào.</p>';
+            }
+        }
+
+        saveViewedProduct(productData);
+        renderViewedProducts();
+
+        const reviewList = document.getElementById('review-list');
+        const paginationContainer = document.getElementById('pagination-container');
+        const reviewsPerPage = 10;
+        let currentPage = 1;
+
+        const allReviews = [
+            { name: "Nguyễn Thị A", stars: 4, content: "Sản phẩm rất tốt, đúng như mô tả. Giao hàng nhanh và đóng gói cẩn thận. Rất hài lòng!" },
+            { name: "Trần Văn B", stars: 5, content: "Hàng chất lượng, tôi sẽ ủng hộ shop dài dài." },
+            { name: "Phạm Văn C", stars: 5, content: "Mọi người nên mua sản phẩm này!" },
+            { name: "Lê Văn D", stars: 4, content: "Mua hàng rất nhanh gọn, sản phẩm dùng thích lắm!" },
+            { name: "Mai Thị E", stars: 5, content: "Món đồ không thể thiếu của tôi!" },
+            { name: "Phạm Ngọc F", stars: 4, content: "Rất đáng đồng tiền, sẽ mua lại nếu có nhu cầu." },
+            { name: "Nguyễn Minh G", stars: 5, content: "Chất lượng vượt xa mong đợi. Đã giới thiệu cho bạn bè." },
+            { name: "Trần Thu H", stars: 3, content: "Sản phẩm dùng tạm được, giao hàng hơi lâu." },
+            { name: "Vũ Duy I", stars: 5, content: "Đóng gói rất đẹp, sản phẩm không có gì để chê." },
+            { name: "Đặng Thị K", stars: 4, content: "Giá hợp lý, dùng ổn định, rất hài lòng." },
+            { name: "Lê Minh L", stars: 5, content: "Sản phẩm này thật tuyệt vời, không có gì để phàn nàn." },
+            { name: "Nguyễn Duy M", stars: 4, content: "Dùng một thời gian thấy vẫn rất ổn." },
+            { name: "Hoàng N", stars: 5, content: "Giao hàng nhanh, sản phẩm đẹp hơn trong hình." },
+            { name: "Trần O", stars: 5, content: "Shop tư vấn nhiệt tình, sản phẩm chính hãng." },
+            { name: "Vũ P", stars: 3, content: "Có một chút lỗi nhỏ nhưng vẫn chấp nhận được." },
+            { name: "Đỗ Q", stars: 5, content: "Chất lượng tuyệt vời, xứng đáng 5 sao." },
+            { name: "Nguyễn R", stars: 4, content: "Sản phẩm này rất hữu ích, tôi rất thích." },
+            { name: "Lê S", stars: 5, content: "Mua nhiều lần rồi, lần nào cũng ưng ý." },
+            { name: "Trần T", stars: 5, content: "Sản phẩm tốt, tôi sẽ quay lại mua sắm tại đây." },
+            { name: "Hoàng U", stars: 4, content: "Màu sắc rất đẹp, đúng ý tôi." },
+        ];
+
+        function renderReviews() {
+            reviewList.innerHTML = '';
+            const startIndex = (currentPage - 1) * reviewsPerPage;
+            const endIndex = startIndex + reviewsPerPage;
+            const reviewsToDisplay = allReviews.slice(startIndex, endIndex);
+
+            reviewsToDisplay.forEach(review => {
+                const starsHtml = Array(5).fill().map((_, i) => {
+                    return `<svg class="w-4 h-4 ${i < review.stars ? 'text-yellow-400' : 'text-gray-300'}" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>`;
+                }).join('');
+                
+                const reviewHtml = `
+                    <div class="border-b pb-4">
+                        <div class="flex items-center mb-2">
+                            <img src="https://placehold.co/50x50/E5E7EB/4B5563?text=user" alt="Ảnh đại diện người dùng" class="w-10 h-10 rounded-full mr-4">
+                            <div>
+                                <h5 class="font-semibold">${review.name}</h5>
+                                <div class="flex">${starsHtml}</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">
+                            "${review.content}"
+                        </p>
+                    </div>
+                `;
+                reviewList.innerHTML += reviewHtml;
             });
-            currentReviewsCount = initialReviewsCount;
-            showMoreButton.classList.remove('hidden');
-            showLessButton.classList.add('hidden');
-        });
+        }
+
+        function setupPagination() {
+            const pageCount = Math.ceil(allReviews.length / reviewsPerPage);
+            paginationContainer.innerHTML = '';
+
+            for (let i = 1; i <= pageCount; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.classList.add('px-4', 'py-2', 'rounded-lg', 'font-semibold', 'transition-colors', 'duration-200');
+                if (i === currentPage) {
+                    button.classList.add('bg-indigo-600', 'text-white');
+                } else {
+                    button.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                }
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    renderReviews();
+                    setupPagination();
+                });
+                paginationContainer.appendChild(button);
+            }
+        }
+
+        renderReviews();
+        setupPagination();
     </script>
 </body>
 </html>
