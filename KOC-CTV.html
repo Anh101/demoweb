@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách KOC/CTV Chuyên Nghiệp</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo hoặc tiêu đề -->
+            <a href="#" class="text-2xl font-bold text-indigo-600" id="header-title">
+                Danh Sách KOC/CTV
+            </a>
+            
+            <!-- Nút Quay lại -->
+            <button id="back-button" class="hidden text-gray-600 hover:text-indigo-600 focus:outline-none transition-colors duration-300">
+                <svg class="w-6 h-6 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Quay lại
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Vùng hiển thị danh sách KOC/CTV hoặc hồ sơ chi tiết -->
+        <div id="content-container"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 text-center rounded-t-3xl shadow-2xl mt-8">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Trang Web KOC/CTV. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript để xử lý logic hiển thị nội dung -->
+    <script>
+        // Dữ liệu mẫu cho các KOC/CTV
+        const kocData = [
+            {
+                id: 'koc-1',
+                name: 'Nguyễn Văn A',
+                bio: 'Xin chào, tôi là Nguyễn Văn A. Với kinh nghiệm nhiều năm trong lĩnh vực sáng tạo nội dung và tiếp thị, tôi chuyên tạo ra các bài đánh giá sản phẩm, video viral, và nội dung thu hút trên các nền tảng mạng xã hội như TikTok, Instagram, và YouTube.',
+                intro: 'Tôi là KOC chuyên nghiệp, giúp sản phẩm của bạn tiếp cận đúng đối tượng và tạo ra doanh số bền vững thông qua nội dung sáng tạo và đánh giá chân thực.',
+                avatar: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Nguyễn+Văn+A',
+                services: [
+                    { title: 'Đánh giá sản phẩm', description: 'Bài viết, video review sản phẩm chân thực trên các nền tảng.' },
+                    { title: 'Sáng tạo nội dung', description: 'Video, hình ảnh độc đáo, thu hút cho chiến dịch marketing.' },
+                    { title: 'Quảng bá trên mạng xã hội', description: 'Đăng tải, chia sẻ nội dung trên các nền tảng có sẵn của tôi.' }
+                ],
+                projects: [
+                    { title: 'Dự án quảng bá sản phẩm A', description: 'Tạo chuỗi video ngắn trên TikTok, đạt 500k lượt xem.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+1' },
+                    { title: 'Bài viết đánh giá sản phẩm B', description: 'Bài viết chi tiết trên blog và Instagram, tăng 20% doanh số.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+2' },
+                    { title: 'Livestream ra mắt sản phẩm C', description: 'Livestream tương tác cao trên Facebook, bán hết sản phẩm.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+3' }
+                ]
+            },
+            {
+                id: 'koc-2',
+                name: 'Trần Thị B',
+                bio: 'Tôi là KOC/CTV có niềm đam mê mãnh liệt với các sản phẩm làm đẹp. Tôi đã hợp tác với nhiều thương hiệu mỹ phẩm lớn nhỏ để tạo ra các nội dung sáng tạo, giúp họ tiếp cận hàng ngàn khách hàng tiềm năng. Tôi cam kết mang lại những đánh giá khách quan và hữu ích nhất.',
+                intro: 'Chuyên gia trong lĩnh vực làm đẹp và chăm sóc sức khỏe, tôi giúp các nhãn hàng tỏa sáng và chiếm được trái tim của người tiêu dùng.',
+                avatar: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Trần+Thị+B',
+                services: [
+                    { title: 'Review mỹ phẩm', description: 'Đánh giá chi tiết các sản phẩm làm đẹp, chăm sóc da.' },
+                    { title: 'Tạo nội dung video ngắn', description: 'Video review trên TikTok, Reels với kịch bản độc đáo.' },
+                    { title: 'Tổ chức mini-game', description: 'Tăng tương tác và độ phủ thương hiệu qua các hoạt động online.' }
+                ],
+                projects: [
+                    { title: 'Chiến dịch ra mắt son môi', description: 'Đạt 1 triệu lượt xem trên TikTok, bán hết 1000 sản phẩm.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+4' },
+                    { title: 'Review dòng sản phẩm chăm sóc da', description: 'Bài viết trên Instagram thu hút hơn 1000 lượt tương tác.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+5' },
+                    { title: 'Quảng bá sản phẩm chống nắng', description: 'Tạo nội dung viral, tăng nhận diện thương hiệu.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+6' }
+                ]
+            },
+            {
+                id: 'koc-3',
+                name: 'Lê Thị C',
+                bio: 'Với kiến thức sâu rộng về công nghệ và điện tử, tôi chuyên đánh giá các sản phẩm gadget, smartphone, và laptop. Tôi luôn cung cấp những video review chi tiết, phân tích chuyên sâu giúp người xem đưa ra quyết định mua hàng chính xác nhất.',
+                intro: 'KOC chuyên về công nghệ, mang đến những đánh giá khách quan, chi tiết về các sản phẩm điện tử.',
+                avatar: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Lê+Thị+C',
+                services: [
+                    { title: 'Đánh giá thiết bị công nghệ', description: 'Review chuyên sâu các sản phẩm điện tử, gadget.' },
+                    { title: 'Unboxing và trải nghiệm', description: 'Tạo video đập hộp và trải nghiệm thực tế sản phẩm.' },
+                    { title: 'Tư vấn mua sắm', description: 'Đưa ra lời khuyên hữu ích về các sản phẩm công nghệ.' }
+                ],
+                projects: [
+                    { title: 'Review điện thoại thông minh X', description: 'Video review trên YouTube đạt 200k lượt xem trong 1 tuần.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+7' },
+                    { title: 'Chiến dịch quảng bá tai nghe không dây', description: 'Bài viết và video hợp tác, tăng 30% doanh số online.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+8' }
+                ]
+            },
+            {
+                id: 'koc-4',
+                name: 'Phạm Minh D',
+                bio: 'Tôi là CTV trong lĩnh vực du lịch và ẩm thực. Tôi thường xuyên chia sẻ những trải nghiệm cá nhân, bí quyết săn vé rẻ, và những địa điểm ăn uống độc đáo. Nội dung của tôi hướng đến sự gần gũi và chân thật, giúp người xem có được những chuyến đi đáng nhớ.',
+                intro: 'CTV du lịch và ẩm thực, mang đến những review chân thực và đầy cảm hứng về các điểm đến và món ăn.',
+                avatar: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Phạm+Minh+D',
+                services: [
+                    { title: 'Review du lịch', description: 'Chia sẻ kinh nghiệm, lịch trình và điểm đến hấp dẫn.' },
+                    { title: 'Review ẩm thực', description: 'Đánh giá các nhà hàng, quán ăn và món ngon địa phương.' },
+                    { title: 'Hợp tác quảng bá', description: 'Quảng bá các tour du lịch và dịch vụ ăn uống.' }
+                ],
+                projects: [
+                    { title: 'Chuyến đi Hà Giang 4 ngày 3 đêm', description: 'Series video trên Facebook thu hút 500k lượt tương tác.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+9' },
+                    { title: 'Review ẩm thực đường phố Sài Gòn', description: 'Loạt bài viết viral trên Instagram và TikTok.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+10' }
+                ]
+            },
+            {
+                id: 'koc-5',
+                name: 'Hoàng Văn E',
+                bio: 'Tôi chuyên về lĩnh vực tài chính cá nhân và đầu tư. Với những kiến thức chuyên sâu và cách diễn đạt dễ hiểu, tôi giúp người trẻ xây dựng thói quen tiết kiệm, quản lý chi tiêu và đầu tư hiệu quả để đạt được tự do tài chính.',
+                intro: 'KOC tài chính, giúp bạn làm chủ tiền bạc và đầu tư thông minh.',
+                avatar: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Hoàng+Văn+E',
+                services: [
+                    { title: 'Tư vấn tài chính', description: 'Hướng dẫn quản lý chi tiêu, tiết kiệm và đầu tư.' },
+                    { title: 'Đánh giá các ứng dụng tài chính', description: 'Review các app ngân hàng, đầu tư và ví điện tử.' },
+                    { title: 'Hợp tác quảng cáo', description: 'Quảng bá các sản phẩm và dịch vụ tài chính.' }
+                ],
+                projects: [
+                    { title: 'Series "Đầu tư cho người mới"', description: 'Series video trên TikTok đạt 1 triệu lượt xem.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+11' }
+                ]
+            },
+            {
+                id: 'koc-6',
+                name: 'Võ Thị F',
+                bio: 'Tôi là KOC/CTV chuyên về thời trang và phong cách sống. Tôi luôn cập nhật những xu hướng mới nhất và chia sẻ các mẹo phối đồ, làm đẹp. Mục tiêu của tôi là giúp mọi người tự tin thể hiện cá tính qua phong cách riêng.',
+                intro: 'Chuyên gia thời trang, mang đến những phong cách mới mẻ và độc đáo.',
+                avatar: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Võ+Thị+F',
+                services: [
+                    { title: 'Phối đồ và tư vấn phong cách', description: 'Hướng dẫn cách mix & match trang phục phù hợp.' },
+                    { title: 'Review các thương hiệu thời trang', description: 'Đánh giá các bộ sưu tập và sản phẩm thời trang.' },
+                    { title: 'Chụp lookbook và quảng bá', description: 'Hợp tác tạo bộ ảnh thời trang chuyên nghiệp.' }
+                ],
+                projects: [
+                    { title: 'Bộ sưu tập "Xuân Hè 2025"', description: 'Bài viết và hình ảnh trên Instagram thu hút 50k lượt tương tác.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+12' }
+                ]
+            },
+            {
+                id: 'koc-7',
+                name: 'Đỗ Đình G',
+                bio: 'Tôi là CTV chuyên về lĩnh vực giáo dục và sách. Tôi chia sẻ những cuốn sách hay, phương pháp học tập hiệu quả, và các khóa học online. Mục tiêu của tôi là lan tỏa tri thức và giúp mọi người phát triển bản thân.',
+                intro: 'CTV giáo dục, giúp bạn học hỏi và phát triển bản thân mỗi ngày.',
+                avatar: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Đỗ+Đình+G',
+                services: [
+                    { title: 'Review sách', description: 'Tóm tắt và đánh giá các cuốn sách nổi bật.' },
+                    { title: 'Giới thiệu khóa học online', description: 'Quảng bá các khóa học hữu ích và chất lượng.' },
+                    { title: 'Chia sẻ phương pháp học tập', description: 'Hướng dẫn cách học hiệu quả, quản lý thời gian.' }
+                ],
+                projects: [
+                    { title: 'Chuỗi video "Sách hay cho người trẻ"', description: 'Đạt 500k lượt xem trên các nền tảng mạng xã hội.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+13' }
+                ]
+            },
+            {
+                id: 'koc-8',
+                name: 'Phan Thanh H',
+                bio: 'Tôi là CTV trong lĩnh vực nội thất và trang trí nhà cửa. Tôi chia sẻ các ý tưởng thiết kế, mẹo trang trí và các sản phẩm nội thất đẹp. Nội dung của tôi giúp mọi người biến ngôi nhà thành không gian sống mơ ước.',
+                intro: 'KOC nội thất, biến ngôi nhà của bạn thành tổ ấm.',
+                avatar: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Phan+Thanh+H',
+                services: [
+                    { title: 'Tư vấn thiết kế nội thất', description: 'Đưa ra ý tưởng và giải pháp trang trí không gian sống.' },
+                    { title: 'Review sản phẩm nội thất', description: 'Đánh giá các món đồ trang trí, thiết bị nhà bếp.' },
+                    { title: 'Sáng tạo nội dung trên mạng xã hội', description: 'Video ngắn, hình ảnh về các dự án trang trí.' }
+                ],
+                projects: [
+                    { title: 'Thiết kế căn hộ studio', description: 'Bộ ảnh và video về quá trình trang trí, thu hút hàng chục nghìn lượt tương tác.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+14' }
+                ]
+            },
+            {
+                id: 'koc-9',
+                name: 'Đặng Thị I',
+                bio: 'Tôi chuyên về lĩnh vực làm bánh và nấu ăn. Tôi chia sẻ những công thức độc đáo, dễ làm, và các mẹo hay trong nhà bếp. Tôi mong muốn truyền cảm hứng để mọi người yêu thích nấu ăn và làm bánh.',
+                intro: 'KOC ẩm thực, mang hương vị và sự sáng tạo vào gian bếp của bạn.',
+                avatar: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Đặng+Thị+I',
+                services: [
+                    { title: 'Hướng dẫn nấu ăn', description: 'Chia sẻ các công thức món ăn và làm bánh.' },
+                    { title: 'Review dụng cụ nhà bếp', description: 'Đánh giá các thiết bị và dụng cụ làm bếp.' },
+                    { title: 'Hợp tác quảng cáo sản phẩm', description: 'Quảng bá các nguyên liệu và sản phẩm liên quan đến ẩm thực.' }
+                ],
+                projects: [
+                    { title: 'Series "Món ngon mỗi ngày"', description: 'Loạt video trên TikTok đạt 100k lượt xem mỗi video.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+15' }
+                ]
+            },
+            {
+                id: 'koc-10',
+                name: 'Bùi Văn K',
+                bio: 'Tôi là CTV chuyên về thể thao và fitness. Tôi chia sẻ các bài tập hiệu quả, chế độ dinh dưỡng khoa học và các sản phẩm hỗ trợ tập luyện. Tôi tin rằng một lối sống lành mạnh sẽ mang lại hạnh phúc và thành công.',
+                intro: 'CTV fitness, truyền cảm hứng cho một cuộc sống năng động và khỏe mạnh.',
+                avatar: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Bùi+Văn+K',
+                services: [
+                    { title: 'Tư vấn tập luyện', description: 'Xây dựng lịch trình tập luyện cá nhân.' },
+                    { title: 'Review dụng cụ và trang phục thể thao', description: 'Đánh giá các sản phẩm fitness.' },
+                    { title: 'Quảng bá các sự kiện thể thao', description: 'Chia sẻ thông tin và hình ảnh về các giải đấu, sự kiện.' }
+                ],
+                projects: [
+                    { title: 'Thử thách "Giảm cân 30 ngày"', description: 'Chiến dịch trên mạng xã hội thu hút hàng ngàn người tham gia.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+16' }
+                ]
+            }
+        ];
+
+        const contentContainer = document.getElementById('content-container');
+        const headerTitle = document.getElementById('header-title');
+        const backButton = document.getElementById('back-button');
+
+        // Hàm để tạo và hiển thị danh sách các KOC/CTV
+        function renderKocList() {
+            backButton.classList.add('hidden');
+            headerTitle.textContent = 'Danh Sách KOC/CTV';
+            contentContainer.innerHTML = `
+                <section class="py-8">
+                    <h2 class="text-3xl font-bold text-center mb-12">Danh sách KOC/CTV</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        ${kocData.map(koc => `
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300" onclick="renderKocProfile('${koc.id}')">
+                                <img src="${koc.avatar}" alt="Ảnh cá nhân" class="w-full h-64 object-cover">
+                                <div class="p-6 text-center">
+                                    <h4 class="text-2xl font-semibold mb-2">${koc.name}</h4>
+                                    <p class="text-gray-600">${koc.intro}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+            `;
+        }
+
+        // Hàm để tạo và hiển thị hồ sơ chi tiết của một KOC/CTV
+        function renderKocProfile(kocId) {
+            const koc = kocData.find(k => k.id === kocId);
+            if (!koc) {
+                contentContainer.innerHTML = '<p class="text-center">Không tìm thấy hồ sơ.</p>';
+                return;
+            }
+
+            backButton.classList.remove('hidden');
+            headerTitle.textContent = koc.name;
+
+            contentContainer.innerHTML = `
+                <!-- Phần Giới Thiệu Chung -->
+                <section class="bg-indigo-600 text-white py-20 px-4 text-center rounded-b-3xl shadow-xl">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">${koc.intro}</h1>
+                </section>
+
+                <!-- Phần Về Tôi -->
+                <section id="about" class="py-16 px-4">
+                    <div class="container mx-auto max-w-5xl">
+                        <h2 class="text-3xl font-bold text-center mb-12">Về tôi</h2>
+                        <div class="md:flex items-center space-y-8 md:space-y-0 md:space-x-12">
+                            <div class="md:w-1/2 flex justify-center">
+                                <img src="${koc.avatar}" alt="Ảnh chân dung cá nhân" class="rounded-full shadow-lg w-64 h-64 object-cover">
+                            </div>
+                            <div class="md:w-1/2">
+                                <p class="text-lg leading-relaxed mb-4">
+                                    ${koc.bio}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Phần Dịch Vụ Hợp Tác -->
+                <section id="services" class="bg-gray-100 py-16 px-4 rounded-3xl shadow-inner">
+                    <div class="container mx-auto max-w-5xl">
+                        <h2 class="text-3xl font-bold text-center mb-12">Dịch vụ hợp tác</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            ${koc.services.map(service => `
+                                <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-2xl transition-shadow duration-300">
+                                    <div class="flex justify-center mb-4">
+                                        <svg class="w-16 h-16 text-indigo-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- SVG icons can be dynamic based on service type -->
+                                            <path d="M12 2l-2.5 5.5-5.5.5 4 4-1.5 5.5 5.5-3.5 5.5 3.5-1.5-5.5 4-4-5.5-.5z"/>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-xl font-semibold mb-2">${service.title}</h4>
+                                    <p class="text-gray-600">${service.description}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Phần Dự Án/Danh mục đầu tư -->
+                <section id="projects" class="py-16 px-4">
+                    <div class="container mx-auto max-w-5xl">
+                        <h2 class="text-3xl font-bold text-center mb-12">Danh mục dự án</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${koc.projects.map(project => `
+                                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                                    <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                                    <div class="p-6">
+                                        <h4 class="text-xl font-semibold mb-2">${project.title}</h4>
+                                        <p class="text-gray-600">${project.description}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Phần Liên Hệ -->
+                <section id="contact" class="py-16 px-4">
+                    <div class="container mx-auto max-w-2xl">
+                        <h2 class="text-3xl font-bold text-center mb-12">Liên hệ hợp tác</h2>
+                        <form class="bg-white p-8 rounded-lg shadow-xl">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-semibold mb-2">Họ và tên</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-semibold mb-2">Nội dung</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-300">Gửi</button>
+                        </form>
+                    </div>
+                </section>
+            `;
+        }
+
+        // Khởi tạo trang web khi tải xong
+        document.addEventListener('DOMContentLoaded', () => {
+            renderKocList();
+        });
+
+        // Xử lý sự kiện nút "Quay lại"
+        backButton.addEventListener('click', () => {
+            renderKocList();
+        });
+
+    </script>
+</body>
+</html>

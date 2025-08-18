@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Doanh Nghiệp</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Phần Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Tiêu đề trang -->
+            <a href="#" class="text-2xl font-bold text-indigo-600" id="header-title">
+                Danh Sách Doanh Nghiệp
+            </a>
+            
+            <!-- Nút Quay lại -->
+            <button id="back-button" class="hidden text-gray-600 hover:text-indigo-600 focus:outline-none transition-colors duration-300">
+                <svg class="w-6 h-6 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Quay lại
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Vùng hiển thị danh sách hoặc hồ sơ chi tiết -->
+        <div id="content-container"></div>
+    </main>
+
+    <!-- Phần Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 text-center rounded-t-3xl shadow-2xl mt-8">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Trang Web Doanh Nghiệp. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript để xử lý logic hiển thị nội dung -->
+    <script>
+        // Dữ liệu mẫu cho 10 doanh nghiệp
+        const businessData = [
+            {
+                id: 'biz-1',
+                name: 'Công ty TNHH Giải pháp số ABC',
+                intro: 'Chuyên cung cấp giải pháp công nghệ thông tin toàn diện.',
+                bio: 'Công ty TNHH Giải pháp số ABC được thành lập với sứ mệnh mang lại những giải pháp công nghệ tiên tiến, giúp các doanh nghiệp tối ưu hóa quy trình, tăng hiệu suất và nâng cao năng lực cạnh tranh.',
+                logo: 'https://placehold.co/400x400/E5E7EB/4B5563?text=IT+Solutions',
+                services: [
+                    { title: 'Phát triển phần mềm', description: 'Thiết kế và lập trình ứng dụng web, di động theo yêu cầu.' },
+                    { title: 'Tư vấn chuyển đổi số', description: 'Đưa ra lộ trình và giải pháp số hóa cho doanh nghiệp.' },
+                    { title: 'Bảo mật thông tin', description: 'Cung cấp các dịch vụ bảo mật và phòng chống tấn công mạng.' }
+                ],
+                projects: [
+                    { title: 'Hệ thống ERP cho nhà máy X', description: 'Giúp quản lý sản xuất và chuỗi cung ứng hiệu quả.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+1' },
+                    { title: 'Ứng dụng quản lý bán hàng', description: 'Hỗ trợ quản lý đơn hàng, kho bãi và nhân viên.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+2' }
+                ]
+            },
+            {
+                id: 'biz-2',
+                name: 'Agency Tiếp thị số XYZ',
+                intro: 'Đồng hành cùng thương hiệu trong kỷ nguyên số.',
+                bio: 'Chúng tôi là Agency Tiếp thị số XYZ, chuyên cung cấp các chiến dịch marketing sáng tạo và hiệu quả. Đội ngũ chuyên gia của chúng tôi sẽ giúp bạn xây dựng và phát triển thương hiệu trên các nền tảng số.',
+                logo: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Digital+MKT',
+                services: [
+                    { title: 'Quảng cáo trên mạng xã hội', description: 'Lên kế hoạch và thực thi các chiến dịch quảng cáo trên Facebook, Google, TikTok.' },
+                    { title: 'Sáng tạo nội dung', description: 'Viết bài, quay video và thiết kế hình ảnh thu hút.' },
+                    { title: 'Tư vấn chiến lược', description: 'Phân tích thị trường và xây dựng chiến lược tiếp thị dài hạn.' }
+                ],
+                projects: [
+                    { title: 'Chiến dịch ra mắt sản phẩm mới', description: 'Tăng 200% doanh số trong tháng đầu tiên.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+3' }
+                ]
+            },
+            {
+                id: 'biz-3',
+                name: 'Công ty Tư vấn Tài chính An Bình',
+                intro: 'Giải pháp tài chính cá nhân và doanh nghiệp.',
+                bio: 'Chúng tôi giúp bạn đưa ra những quyết định tài chính đúng đắn, từ lập kế hoạch hưu trí cho cá nhân đến tối ưu hóa dòng tiền cho doanh nghiệp. An Bình cam kết mang lại sự an tâm và thịnh vượng cho khách hàng.',
+                logo: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Finance',
+                services: [
+                    { title: 'Quản lý tài chính cá nhân', description: 'Tư vấn tiết kiệm, đầu tư và bảo hiểm.' },
+                    { title: 'Thẩm định dự án', description: 'Phân tích và đánh giá tính khả thi của các dự án đầu tư.' },
+                    { title: 'Tư vấn thuế', description: 'Hỗ trợ kê khai và tối ưu hóa chi phí thuế.' }
+                ],
+                projects: [
+                    { title: 'Kế hoạch tài chính cho startup', description: 'Giúp startup huy động vốn thành công và quản lý chi tiêu hiệu quả.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+4' }
+                ]
+            },
+            {
+                id: 'biz-4',
+                name: 'Thiết kế Nội thất Sáng Tạo',
+                intro: 'Biến không gian sống và làm việc thành tác phẩm nghệ thuật.',
+                bio: 'Với đội ngũ kiến trúc sư và nhà thiết kế tài năng, chúng tôi cung cấp các giải pháp thiết kế nội thất độc đáo, phù hợp với mọi phong cách và ngân sách. Mỗi dự án đều là một câu chuyện riêng, phản ánh cá tính của gia chủ.',
+                logo: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Interior+Design',
+                services: [
+                    { title: 'Thiết kế và thi công nội thất', description: 'Tư vấn, lên bản vẽ 3D và thi công trọn gói.' },
+                    { title: 'Tư vấn phong thủy', description: 'Đưa ra lời khuyên về phong thủy để mang lại may mắn và tài lộc.' },
+                    { title: 'Cung cấp vật liệu', description: 'Cung cấp các loại vật liệu cao cấp, thân thiện với môi trường.' }
+                ],
+                projects: [
+                    { title: 'Thiết kế căn hộ cao cấp', description: 'Biến căn hộ 100m2 thành không gian sống tiện nghi, hiện đại.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+5' }
+                ]
+            },
+            {
+                id: 'biz-5',
+                name: 'Chuỗi Nhà hàng Bếp Việt',
+                intro: 'Nơi lưu giữ tinh hoa ẩm thực Việt.',
+                bio: 'Bếp Việt tự hào mang đến những món ăn truyền thống, được chế biến từ nguyên liệu tươi ngon, an toàn. Mỗi món ăn không chỉ ngon mà còn chứa đựng cả một câu chuyện văn hóa. Chúng tôi cam kết mang lại trải nghiệm ẩm thực đáng nhớ cho thực khách.',
+                logo: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Bếp+Việt',
+                services: [
+                    { title: 'Dịch vụ nhà hàng', description: 'Phục vụ các món ăn truyền thống và hiện đại.' },
+                    { title: 'Đặt tiệc và sự kiện', description: 'Cung cấp dịch vụ tổ chức tiệc sinh nhật, liên hoan.' },
+                    { title: 'Giao hàng tận nơi', description: 'Phục vụ giao đồ ăn tận nhà nhanh chóng và tiện lợi.' }
+                ],
+                projects: [
+                    { title: 'Khách hàng thân thiết', description: 'Tổ chức sự kiện tri ân khách hàng, tăng 20% lượng khách quen.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+6' }
+                ]
+            },
+            {
+                id: 'biz-6',
+                name: 'Trung tâm Đào tạo Kỹ năng Mới',
+                intro: 'Nâng tầm tri thức, mở lối thành công.',
+                bio: 'Trung tâm Đào tạo Kỹ năng Mới chuyên cung cấp các khóa học ngắn hạn và dài hạn, giúp học viên trang bị những kỹ năng cần thiết để thành công trong công việc và cuộc sống. Chúng tôi có đội ngũ giảng viên giàu kinh nghiệm và phương pháp giảng dạy hiện đại.',
+                logo: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Education',
+                services: [
+                    { title: 'Khóa học tiếng Anh giao tiếp', description: 'Tự tin giao tiếp với người nước ngoài chỉ sau 3 tháng.' },
+                    { title: 'Đào tạo kỹ năng mềm', description: 'Các khóa học về thuyết trình, làm việc nhóm, quản lý thời gian.' },
+                    { title: 'Hội thảo và workshop', description: 'Tổ chức các buổi chia sẻ kiến thức chuyên sâu từ chuyên gia.' }
+                ],
+                projects: [
+                    { title: 'Chương trình đào tạo cho doanh nghiệp', description: 'Huấn luyện kỹ năng mềm cho nhân viên của công ty lớn, giúp tăng hiệu suất làm việc.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+7' }
+                ]
+            },
+            {
+                id: 'biz-7',
+                name: 'Công ty Xây dựng Phát triển Bền vững',
+                intro: 'Kiến tạo những công trình chất lượng và an toàn.',
+                bio: 'Với hơn 15 năm kinh nghiệm, chúng tôi chuyên thiết kế và thi công các công trình dân dụng và công nghiệp. Chúng tôi cam kết sử dụng vật liệu chất lượng cao, quy trình thi công nghiêm ngặt để đảm bảo an toàn và bền vững cho mọi công trình.',
+                logo: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Construction',
+                services: [
+                    { title: 'Thi công nhà ở dân dụng', description: 'Xây dựng nhà phố, biệt thự theo yêu cầu.' },
+                    { title: 'Thiết kế kiến trúc', description: 'Cung cấp bản vẽ thiết kế kiến trúc và nội thất.' },
+                    { title: 'Cải tạo và sửa chữa', description: 'Nâng cấp và cải tạo các công trình cũ.' }
+                ],
+                projects: [
+                    { title: 'Dự án khu dân cư sinh thái', description: 'Thi công khu đô thị hiện đại, thân thiện với môi trường.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+8' }
+                ]
+            },
+            {
+                id: 'biz-8',
+                name: 'Nhà máy Sản xuất May mặc Thời trang',
+                intro: 'Cung cấp các sản phẩm thời trang chất lượng cao.',
+                bio: 'Chúng tôi là nhà máy sản xuất may mặc với dây chuyền hiện đại và đội ngũ công nhân lành nghề. Chúng tôi chuyên sản xuất các mặt hàng thời trang nam, nữ và trẻ em với mẫu mã đa dạng và chất lượng vải tốt nhất.',
+                logo: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Manufacturing',
+                services: [
+                    { title: 'Sản xuất đồng phục', description: 'Thiết kế và sản xuất đồng phục cho trường học, công ty.' },
+                    { title: 'Gia công hàng xuất khẩu', description: 'Nhận gia công các đơn hàng may mặc số lượng lớn.' },
+                    { title: 'Thiết kế theo yêu cầu', description: 'Lên ý tưởng và sản xuất các bộ sưu tập riêng.' }
+                ],
+                projects: [
+                    { title: 'Bộ sưu tập "Đông 2024"', description: 'Sản xuất 10,000 sản phẩm trong vòng 2 tháng, bán hết 90% ngay khi ra mắt.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+9' }
+                ]
+            },
+            {
+                id: 'biz-9',
+                name: 'Công ty Du lịch Hạnh Phúc',
+                intro: 'Khám phá thế giới, tận hưởng cuộc sống.',
+                bio: 'Với phương châm "Khách hàng là thượng đế", chúng tôi mang đến những tour du lịch độc đáo, hấp dẫn và an toàn. Đội ngũ hướng dẫn viên chuyên nghiệp và giàu kinh nghiệm sẽ giúp bạn có những trải nghiệm khó quên.',
+                logo: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Travel',
+                services: [
+                    { title: 'Tour du lịch trong nước', description: 'Các tour khám phá vẻ đẹp Việt Nam từ Bắc vào Nam.' },
+                    { title: 'Tour du lịch quốc tế', description: 'Khám phá các điểm đến nổi tiếng trên thế giới.' },
+                    { title: 'Dịch vụ đặt phòng, vé máy bay', description: 'Hỗ trợ đặt phòng khách sạn, vé máy bay, visa.' }
+                ],
+                projects: [
+                    { title: 'Tour du lịch Tây Bắc mùa lúa chín', description: 'Tổ chức tour cho hơn 500 khách, nhận được phản hồi tích cực.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+10' }
+                ]
+            },
+            {
+                id: 'biz-10',
+                name: 'Phòng khám Đa khoa Gia Đình',
+                intro: 'Chăm sóc sức khỏe toàn diện cho mọi thành viên.',
+                bio: 'Phòng khám Đa khoa Gia Đình được trang bị cơ sở vật chất hiện đại, đội ngũ y bác sĩ tận tâm, chuyên môn cao. Chúng tôi cung cấp các dịch vụ khám chữa bệnh tổng quát và chuyên sâu, đảm bảo sự an toàn và hài lòng cho bệnh nhân.',
+                logo: 'https://placehold.co/400x400/E5E7EB/4B5563?text=Healthcare',
+                services: [
+                    { title: 'Khám tổng quát', description: 'Gói khám sức khỏe định kỳ cho cá nhân và doanh nghiệp.' },
+                    { title: 'Khám chuyên khoa', description: 'Tư vấn và điều trị các bệnh chuyên khoa như tim mạch, tiêu hóa, da liễu.' },
+                    { title: 'Tiêm chủng', description: 'Cung cấp các loại vắc xin cho trẻ em và người lớn.' }
+                ],
+                projects: [
+                    { title: 'Chương trình khám sức khỏe cho nhân viên', description: 'Tổ chức khám định kỳ cho các công ty, được đánh giá cao về chất lượng dịch vụ.', image: 'https://placehold.co/600x400/D1D5DB/1F2937?text=Dự+án+11' }
+                ]
+            }
+        ];
+
+        const contentContainer = document.getElementById('content-container');
+        const headerTitle = document.getElementById('header-title');
+        const backButton = document.getElementById('back-button');
+
+        // Hàm để tạo và hiển thị danh sách các doanh nghiệp
+        function renderBusinessList() {
+            backButton.classList.add('hidden');
+            headerTitle.textContent = 'Danh Sách Doanh Nghiệp';
+            contentContainer.innerHTML = `
+                <section class="py-8">
+                    <h2 class="text-3xl font-bold text-center mb-12">Danh sách Doanh Nghiệp</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        ${businessData.map(business => `
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300" onclick="renderBusinessProfile('${business.id}')">
+                                <img src="${business.logo}" alt="Logo của ${business.name}" class="w-full h-64 object-cover">
+                                <div class="p-6 text-center">
+                                    <h4 class="text-2xl font-semibold mb-2">${business.name}</h4>
+                                    <p class="text-gray-600">${business.intro}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+            `;
+        }
+
+        // Hàm để tạo và hiển thị hồ sơ chi tiết của một doanh nghiệp
+        function renderBusinessProfile(businessId) {
+            const business = businessData.find(b => b.id === businessId);
+            if (!business) {
+                contentContainer.innerHTML = '<p class="text-center">Không tìm thấy hồ sơ.</p>';
+                return;
+            }
+
+            backButton.classList.remove('hidden');
+            headerTitle.textContent = business.name;
+
+            contentContainer.innerHTML = `
+                <!-- Phần Giới Thiệu Chung -->
+                <section class="bg-indigo-600 text-white py-20 px-4 text-center rounded-b-3xl shadow-xl">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">${business.intro}</h1>
+                </section>
+
+                <!-- Phần Giới thiệu công ty -->
+                <section id="about" class="py-16 px-4">
+                    <div class="container mx-auto max-w-5xl">
+                        <h2 class="text-3xl font-bold text-center mb-12">Về chúng tôi</h2>
+                        <div class="md:flex items-center space-y-8 md:space-y-0 md:space-x-12">
+                            <div class="md:w-1/2 flex justify-center">
+                                <img src="${business.logo}" alt="Logo của ${business.name}" class="rounded-full shadow-lg w-64 h-64 object-cover">
+                            </div>
+                            <div class="md:w-1/2">
+                                <p class="text-lg leading-relaxed mb-4">
+                                    ${business.bio}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Phần Dịch vụ của chúng tôi -->
+                <section id="services" class="bg-gray-100 py-16 px-4 rounded-3xl shadow-inner">
+                    <div class="container mx-auto max-w-5xl">
+                        <h2 class="text-3xl font-bold text-center mb-12">Dịch vụ của chúng tôi</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            ${business.services.map(service => `
+                                <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-2xl transition-shadow duration-300">
+                                    <div class="flex justify-center mb-4">
+                                        <svg class="w-16 h-16 text-indigo-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- Biểu tượng SVG có thể thay đổi tùy theo loại hình dịch vụ -->
+                                            <path d="M12 2l-2.5 5.5-5.5.5 4 4-1.5 5.5 5.5-3.5 5.5 3.5-1.5-5.5 4-4-5.5-.5z"/>
+                                        </svg>
+                                    </div>
+                                    <h4 class="text-xl font-semibold mb-2">${service.title}</h4>
+                                    <p class="text-gray-600">${service.description}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Phần Dự án đã thực hiện -->
+                <section id="projects" class="py-16 px-4">
+                    <div class="container mx-auto max-w-5xl">
+                        <h2 class="text-3xl font-bold text-center mb-12">Dự án đã thực hiện</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${business.projects.map(project => `
+                                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                                    <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                                    <div class="p-6">
+                                        <h4 class="text-xl font-semibold mb-2">${project.title}</h4>
+                                        <p class="text-gray-600">${project.description}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Phần Liên hệ -->
+                <section id="contact" class="py-16 px-4">
+                    <div class="container mx-auto max-w-2xl">
+                        <h2 class="text-3xl font-bold text-center mb-12">Liên hệ với chúng tôi</h2>
+                        <form class="bg-white p-8 rounded-lg shadow-xl">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-semibold mb-2">Họ và tên</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-semibold mb-2">Nội dung</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-300">Gửi</button>
+                        </form>
+                    </div>
+                </section>
+            `;
+        }
+
+        // Khởi tạo trang web khi tải xong
+        document.addEventListener('DOMContentLoaded', () => {
+            renderBusinessList();
+        });
+
+        // Xử lý sự kiện nút "Quay lại"
+        backButton.addEventListener('click', () => {
+            renderBusinessList();
+        });
+
+    </script>
+</body>
+</html>
