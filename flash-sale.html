@@ -310,7 +310,6 @@
             color: var(--light-text-color);
         }
 
-
         /* Price section */
         .price-container {
             display: flex;
@@ -365,20 +364,21 @@
 
         .buy-button {
             display: inline-block;
-            background-color: var(--primary-color);
+            background: linear-gradient(90deg, #ff7e5f, #ff4500);
             color: #fff;
             padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            border-radius: 25px; /* Bo tròn nhiều hơn */
             text-decoration: none;
             font-weight: bold;
-            margin-top: 1rem;
-            transition: background-color 0.3s ease;
-            text-align: center;
-            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Thêm hiệu ứng nổi */
+            text-transform: uppercase;
         }
 
         .buy-button:hover {
-            background-color: var(--secondary-color);
+            background: linear-gradient(90deg, #ff4500, #ff7e5f);
+            transform: scale(1.05); /* Phóng to nhẹ khi rê chuột */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* New styles for quantity bar */
@@ -390,6 +390,10 @@
             border-radius: 10px;
             height: 20px;
             overflow: hidden;
+            display: flex; /* Dùng flexbox để căn chỉnh nội dung trên cùng một dòng */
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5px;
         }
 
         .quantity-bar {
@@ -397,23 +401,60 @@
             background: linear-gradient(90deg, #ffcc00, #ff4500);
             border-radius: 10px;
             transition: width 0.5s ease;
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
         }
 
         .quantity-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             color: #fff;
             font-size: 0.8rem;
             font-weight: bold;
             white-space: nowrap;
             z-index: 2;
+            position: relative; /* Đặt lại position để hiển thị trên thanh bar */
         }
 
         .quantity-text.low-stock {
             color: var(--text-color);
+        }
+
+        .buy-now-wrapper {
+            z-index: 2;
+        }
+        .add-to-cart-button-small, .buy-button-small {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .add-to-cart-button-small {
+            background-color: #fff;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .add-to-cart-button-small:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        
+        .buy-button-small {
+            background: linear-gradient(90deg, #ff7e5f, #ff4500);
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .buy-button-small:hover {
+            background: linear-gradient(90deg, #ff4500, #ff7e5f);
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
         }
         
         /* Footer */
@@ -431,6 +472,9 @@
             .product-container {
                 padding: 1rem;
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+            .add-to-cart-button-small, .buy-button-small {
+                width: 100%;
             }
         }
     </style>
@@ -525,7 +569,6 @@
     </div>
     <main class="product-container">
         </main>
-
     <footer class="footer">
         <p>&copy; 2024 Flash Sale. All rights reserved.</p>
     </footer>
@@ -626,11 +669,16 @@
                         <div class="price-info-group">
                             <span class="price-sale">${formatCurrency(product.salePrice).replace('₫', '')}</span>
                         </div>
-                        <a href="#" class="buy-button">Mua Ngay</a>
                     </div>
-                    <div class="quantity-bar-container">
-                        <div class="quantity-bar" style="width: ${quantityPercentage}%; opacity: ${barOpacity};"></div>
-                        <span class="quantity-text ${quantityPercentage < 20 ? 'low-stock' : ''}">${barText}</span>
+                    <div class="quantity-buy-bar">
+                        <div class="quantity-bar-container">
+                            <div class="quantity-bar" style="width: ${quantityPercentage}%; opacity: ${barOpacity};"></div>
+                            <span class="quantity-text ${quantityPercentage < 20 ? 'low-stock' : ''}">${barText}</span>
+                        </div>
+                        <div class="button-group">
+                            <a href="#" class="add-to-cart-button-small">Thêm giỏ hàng</a>
+                            <a href="#" class="buy-button-small">Mua Ngay</a>
+                        </div>
                     </div>
                 </div>
             `;
