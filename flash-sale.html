@@ -256,8 +256,10 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            text-align: center;
-            padding-bottom: 0.5rem; /* Điều chỉnh để thon gọn hơn */
+            
+            /* Cập nhật bố cục */
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -281,7 +283,7 @@
         /* Product image */
         .product-image {
             width: 100%;
-            height: 180px; /* Điều chỉnh để thon gọn hơn */
+            height: 50%; /* Ảnh chiếm 50% chiều cao */
             object-fit: cover;
             border-bottom: 1px solid var(--border-color);
             transition: transform 0.5s ease;
@@ -295,31 +297,17 @@
         .product-info {
             padding: 1rem;
             text-align: left;
-        }
-
-        .product-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .product-description {
-            font-size: 0.9rem;
-            color: var(--light-text-color);
-            margin-bottom: 0.5rem;
-            height: 40px;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            height: 50%; /* Phần thông tin chiếm 50% chiều cao */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         
         /* Brand on product card */
         .product-brand {
             display: flex;
             align-items: center;
-            margin-top: 0.5rem;
+            /*margin-top: 0.5rem;*/
             margin-bottom: 0.5rem;
         }
 
@@ -361,11 +349,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 1rem;
-            padding: 0 1rem;
             width: 100%;
+            padding: 0;
+            flex-wrap: wrap;
         }
-
+        
         .price-info-group {
             display: flex;
             flex-direction: column;
@@ -403,9 +391,16 @@
         }
 
         /* New styles for quantity bar */
+        .quantity-buy-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 1px;
+        }
+
         .quantity-bar-container {
-            width: 90%;
-            margin: 10px auto;
+            flex-grow: 1;
             position: relative;
             background-color: #ffefe2;
             border-radius: 10px;
@@ -413,10 +408,8 @@
             overflow: hidden;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 5px;
         }
-
+        
         .quantity-bar {
             height: 100%;
             background: linear-gradient(90deg, #ffcc00, #ff4500);
@@ -434,7 +427,9 @@
             font-weight: bold;
             white-space: nowrap;
             z-index: 2;
-            position: relative;
+            position: absolute;
+            width: 100%;
+            text-align: center;
         }
 
         .quantity-text.low-stock {
@@ -470,6 +465,11 @@
             background: linear-gradient(90deg, #ff7e5f, #ff4500);
             color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 6px;
+            text-transform: none;
+            flex-shrink: 0;
         }
 
         .buy-button-small:hover {
@@ -589,27 +589,27 @@
                     <div class="brand-group active">
                         <div class="brand-item">
                             <img src="https://placehold.co/100x100/52B788/FFFFFF?text=Brand+A" alt="Brand A">
-                            <p>Brand 1</p>
+                            <p>Brand 7</p>
                         </div>
                         <div class="brand-item">
                             <img src="https://placehold.co/100x100/2A9D8F/FFFFFF?text=Brand+B" alt="Brand B">
-                            <p>Brand 2</p>
+                            <p>Brand 8</p>
                         </div>
                         <div class="brand-item">
                             <img src="https://placehold.co/100x100/E9C46A/FFFFFF?text=Brand+C" alt="Brand C">
-                            <p>Brand 3</p>
+                            <p>Brand 9</p>
                         </div>
                         <div class="brand-item">
                             <img src="https://placehold.co/100x100/F4A261/FFFFFF?text=Brand+D" alt="Brand D">
-                            <p>Brand 4</p>
+                            <p>Brand 10</p>
                         </div>
                         <div class="brand-item">
                             <img src="https://placehold.co/100x100/E9C46A/FFFFFF?text=Brand+C" alt="Brand C">
-                            <p>Brand 5</p>
+                            <p>Brand 11</p>
                         </div>
                         <div class="brand-item">
                             <img src="https://placehold.co/100x100/F4A261/FFFFFF?text=Brand+D" alt="Brand D">
-                            <p>Brand 6</p>
+                            <p>Brand 12</p>
                         </div>
                     </div>
                     <div class="brand-group">
@@ -658,7 +658,7 @@
         <img src="https://anh101.github.io/demoweb//phone.png" alt="Phone Icon" style="width: 24px; height: 24px;">
     </a>
     <a href="https://m.me/your-messenger-id" class="contact-button messenger-button" target="_blank">
-        <img src="https://anh101.github.io/demoweb/messenger.jpg" alt="Messenger Icon" style="width: 24px; height: 24px;">
+        <img src="https://anh101.github.io/demoweb/messenger.png" alt="Messenger Icon" style="width: 24px; height: 24px;">
     </a>
 </div>
 
@@ -753,7 +753,6 @@
                 <div class="product-brand">
                     <img src="${product.brandImage}" alt="${product.brand}" class="brand-logo">
                 </div>
-                <p class="product-description">${product.description}</p>
                 <div class="price-buy-container">
                     <div class="price-info-group">
                         <span class="price-old">${formatCurrency(product.price)}</span>
@@ -765,10 +764,7 @@
                         <div class="quantity-bar" style="width: ${quantityPercentage}%; opacity: ${barOpacity};"></div>
                         <span class="quantity-text ${quantityPercentage < 20 ? 'low-stock' : ''}">${barText}</span>
                     </div>
-                    <div class="button-group">
-                        <a href="#" class="add-to-cart-button-small">Thêm giỏ hàng</a>
-                        <a href="#" class="buy-button-small">Mua Ngay</a>
-                    </div>
+                    <a href="#" class="buy-button-small">Mua Ngay</a>
                 </div>
             </div>
         `;
